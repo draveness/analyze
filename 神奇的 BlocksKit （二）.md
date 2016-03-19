@@ -7,8 +7,8 @@ Blog: [Draveness](http://draveness.me)
 
 这篇文章『神奇的 BlocksKit』的第二部分，关于第一部分的内容在这里：
 
-+ [神奇的 BlocksKit（一）](http://draveness.me/blockskit-1/)
-+ [神奇的 BlocksKit（二）](http://draveness.me/blockskit-2/)
++ [神奇的 BlocksKit（一）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/神奇的%20BlocksKit%20（一）.md)
++ [神奇的 BlocksKit（二）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/神奇的%20BlocksKit%20（二）.md)
 
 
 ## 动态代理
@@ -23,7 +23,7 @@ Blog: [Draveness](http://draveness.me)
 
 这里是我对这部分代码结构的理解：
 
-![](http://7xrlu3.com1.z0.glb.clouddn.com/2016-03-10-14575059250789.jpg)
+![](images/blockskit.jpg)
 
 这篇文成首先会从上到下对整个工作原理进行概述，然后再从底层到顶层详细地解释这个框架的机制和原理。
 
@@ -122,7 +122,7 @@ IMP setterImplementation = imp_implementationWithBlock(^(NSObject *delegatingObj
 
 我们已经自顶向下分析了 BlocksKit 的工作过程，也对这个部分有一个基本的了解，接下来我们将从底层到顶层分析整个 BlocksKit，我们再来看一下整个框架的结构图：
 
-![](http://7xrlu3.com1.z0.glb.clouddn.com/2016-03-10-14575059178274.jpg)
+![](images/blockskit.jpg)
 
 我们将以下面的顺序来依次介绍这些模块，其中的 `UITextField` 可以换成其它的类：
 
@@ -675,12 +675,12 @@ if (retSize) {
 
 到这里对于 BlocksKit 的实现机制就基本上已经看完了。我们在来看一下 整个 BlocksKit 的结构图：
 
-![](http://7xrlu3.com1.z0.glb.clouddn.com/2016-03-10-14575059178274.jpg)
+![](images/blockskit.jpg)
 
 我写这篇文章大约用了七天的时间，如果你对其中的内容有些疑问，可以发邮件或者在下面留言。
 
-+ [神奇的 BlocksKit（一）](http://draveness.me/blockskit-1/)
-+ [神奇的 BlocksKit（二）](http://draveness.me/blockskit-2/)
++ [神奇的 BlocksKit（一）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/神奇的%20BlocksKit%20（一）.md)
++ [神奇的 BlocksKit（二）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/神奇的%20BlocksKit%20（二）.md)
 
 <iframe src="http://ghbtns.com/github-btn.html?user=draveness&type=follow&size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe>
 

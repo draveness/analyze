@@ -630,8 +630,8 @@ void (^block)(void) = ^{
 
 由于这篇文章中的内容较多，所以内容分成了两个部分，下一部分介绍的是 BlocksKit 中的最重要的部分动态代理：
 
-+ [神奇的 BlocksKit（一）](http://draveness.me/blockskit-1/)
-+ [神奇的 BlocksKit（二）](http://draveness.me/blockskit-2/)
++ [神奇的 BlocksKit（一）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/神奇的%20BlocksKit%20（一）.md)
++ [神奇的 BlocksKit（二）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/神奇的%20BlocksKit%20（二）.md)
 
 <iframe src="http://ghbtns.com/github-btn.html?user=draveness&type=follow&size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe>
 
