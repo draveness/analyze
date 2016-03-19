@@ -7,8 +7,8 @@ Blog: [Draveness](http://draveness.me)
 
 这篇文章『神奇的 BlocksKit』的第二部分，关于第一部分的内容在这里：
 
-+ [神奇的 BlocksKit（一）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/神奇的%20BlocksKit%20（一）.md)
-+ [神奇的 BlocksKit（二）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/神奇的%20BlocksKit%20（二）.md)
++ [神奇的 BlocksKit（一）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/BlocksKit/神奇的%20BlocksKit%20（一）.md)
++ [神奇的 BlocksKit（二）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/BlocksKit/神奇的%20BlocksKit%20（二）.md)
 
 
 ## 动态代理
@@ -679,8 +679,8 @@ if (retSize) {
 
 我写这篇文章大约用了七天的时间，如果你对其中的内容有些疑问，可以发邮件或者在下面留言。
 
-+ [神奇的 BlocksKit（一）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/神奇的%20BlocksKit%20（一）.md)
-+ [神奇的 BlocksKit（二）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/神奇的%20BlocksKit%20（二）.md)
++ [神奇的 BlocksKit（一）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/BlocksKit/神奇的%20BlocksKit%20（一）.md)
++ [神奇的 BlocksKit（二）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/BlocksKit/神奇的%20BlocksKit%20（二）.md)
 
 <iframe src="http://ghbtns.com/github-btn.html?user=draveness&type=follow&size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe>
 
