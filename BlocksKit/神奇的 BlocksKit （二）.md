@@ -15,6 +15,8 @@ Blog: [Draveness](http://draveness.me)
 
 动态代理这部分可以说是 BlocksKit 的精华。它**使用 block 属性替换 UIKit 中的所有能够通过代理完成的事件**，省略了设置代理和实现方法的过程，让对象自己实现代理方法（其实不是对象自己实现的代理方法，只是框架为我们提供的便捷方法，不需要构造其它对象就能完成代理方法的实现，具体我们会在后面详细地解释），而且这个功能的实现是极其动态的。
 
+下面是这部分几个关键的类：
+
 + `A2BlockInvocation` 的主要作用是存储和转发 block
 + `A2DynamicDelegate` 用来实现类的代理和数据源，它是 `NSProxy` 的子类
 + `NSObject+A2DynamicDelegate` 负责为返回 `bk_dynamicDelegate` 和 `bk_dynamicDataSource` 等 `A2DynamicDelegate` 类型的实例，为 `NSObject` 提供主要的接口
