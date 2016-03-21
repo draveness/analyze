@@ -2,6 +2,11 @@
 
 ![afnetworking-logo](../images/afnetworking-logo.png)
 
+Blog: [Draveness](http://draveness.me)
+
+<iframe src="http://ghbtns.com/github-btn.html?user=draveness&type=follow&size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe> 
+
+在这一系列的文章中，我会对 AFNetworking 的源代码进行分析，深入了解一下它是如何构建的，如何在日常中完成发送 HTTP 请求、构建网络层这一任务。
 
 [AFNetworking](https://github.com/AFNetworking/AFNetworking) 是如今 iOS 开发中不可缺少的组件之一。它的 github 配置上是如下介绍的：
 
@@ -125,5 +130,9 @@ AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[[
 AFNetworking 实际上只是对 `NSURLSession` 高度地封装, 提供一些简单易用的 API 方便我们在 iOS 开发中发出网络请求并在其上更快地构建网络层组件并提供合理的接口.
 
 到这里，这一篇文章从上到下对 AFNetworking 是如何调用的进行了一个简单的概述，我会在随后的文章中会具体介绍 AFNetworking 中的每一个模块，了解它们是如何工作，并且如何合理地组织到一起的。
+
+Blog: [Draveness](http://draveness.me)
+
+<iframe src="http://ghbtns.com/github-btn.html?user=draveness&type=follow&size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe> 
 
 
