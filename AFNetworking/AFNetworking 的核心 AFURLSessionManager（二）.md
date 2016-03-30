@@ -91,7 +91,7 @@ Blog: [Draveness](http://draveness.me)
 
 这里省略了一些返回 `NSURLSessionTask` 的方法，因为这些接口的形式都是差不多的。
 
-我们将以 `- [AFURLSessionManager dataTaskWithRequest:uploadProgress:downloadProgress:completionHandler:]` 方法的实现为例，分析它是如何实例化并返回一个 `NSURLSessionTask` 的实例的：
+<a id="dataTaskWithRequest:uploadProgress:downloadProgress:completionHandler:"></id>我们将以 `- [AFURLSessionManager dataTaskWithRequest:uploadProgress:downloadProgress:completionHandler:]` 方法的实现为例，分析它是如何实例化并返回一个 `NSURLSessionTask` 的实例的：
 
 ```objectivec
 - (NSURLSessionDataTask *)dataTaskWithRequest:(NSURLRequest *)request
