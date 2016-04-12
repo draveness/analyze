@@ -6,8 +6,8 @@ Blog: [Draveness](http://draveness.me)
 
 在前面两个部分已经分析过 `AFNetworking` 是对 `NSURLSession` 的封装，也了解了它是如何发出请求的，在这里我们**对发出请求以及接收响应的过程**进行序列化，这涉及到两个**模块**：
 
-+ [AFURLResponseSerialization](#AFURLResponseSerialization)
-+ [AFURLRequestSerialization](#AFURLRequestSerialization)
++ [AFURLResponseSerialization](#afurlresponseserialization)
++ [AFURLRequestSerialization](#afurlrequestserialization)
 
 前者是处理响应的模块，将请求返回的数据解析成对应的格式。而后者的主要作用是修改请求（主要是 HTTP 请求）的头部，提供了一些语义明确的接口设置 HTTP 头部字段。
 
@@ -678,7 +678,7 @@ for (NSString *keyPath in AFHTTPRequestSerializerObservedKeyPaths()) {
 
 + [AFNetworking 概述（一）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/AFNetworking/AFNetworking%20概述（一）.md)
 + [AFNetworking 的核心 AFURLSessionManager（二）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/AFNetworking/AFNetworking%20的核心%20AFURLSessionManager（二）.md)
-+ [处理请求和响应 AFURLSerialization（三）]()
++ [处理请求和响应 AFURLSerialization（三）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/AFNetworking/处理请求和响应%20AFURLSerialization（三）.md)
 
 
 <iframe src="http://ghbtns.com/github-btn.html?user=draveness&type=follow&size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe>
