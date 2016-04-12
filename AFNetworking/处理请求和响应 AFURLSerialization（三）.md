@@ -35,7 +35,7 @@ Blog: [Draveness](http://draveness.me)
 
 在具体了解模块中类的实现之前，先看一下这个小模块的结构：
 
-![AFURLResponseSerialization](http://7xrlu3.com1.z0.glb.clouddn.com/2016-04-12-AFURLResponseSerialization.png)
+![AFURLResponseSerialization](../images/AFURLResponseSerialization.png)
 
 + 模块中的所有类都遵循 `AFURLResponseSerialization` 协议
 + `AFHTTPResponseSerializer` 为模块中最终要的根类
