@@ -1,4 +1,4 @@
-# AFNetworking 的核心 AFURLSessionManager（二）
+ # AFNetworking 的核心 AFURLSessionManager（二）
 
 Blog: [Draveness](http://draveness.me)
 
