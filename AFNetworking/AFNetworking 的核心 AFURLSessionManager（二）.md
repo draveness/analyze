@@ -10,7 +10,7 @@ Blog: [Draveness](http://draveness.me)
 1. [负责创建和管理 `NSURLSession`](#NSURLSession)
 2. [管理 `NSURLSessionTask`](#NSURLSessionTask)
 3. [实现 `NSURLSessionDelegate` 等协议中的代理方法](#NSURLSessionDelegate)
-4. [使用 `AFURLSessionManagerTaskDelegate` 管理进度](#AFURLSessionManagerTaskDelegate)
+4. [使用 `AFURLSessionManagerTaskDelegate` 管理进度](#AFURLSessionManagerTaskDelegate)
 5. [使用 `_AFURLSessionTaskSwizzling` 调剂方法](#_AFURLSessionTaskSwizzling)
 6. [引入 `AFSecurityPolicy` 保证请求的安全](#AFSecurityPolocy)
 7. [引入 `AFNetworkReachabilityManager` 监控网络状态](#AFNetworkReachabilityManager)
@@ -91,7 +91,7 @@ Blog: [Draveness](http://draveness.me)
 
 这里省略了一些返回 `NSURLSessionTask` 的方法，因为这些接口的形式都是差不多的。
 
-我们将以 `- [AFURLSessionManager dataTaskWithRequest:uploadProgress:downloadProgress:completionHandler:]` 方法的实现为例，分析它是如何实例化并返回一个 `NSURLSessionTask` 的实例的：
+<a id="dataTaskWithRequest:uploadProgress:downloadProgress:completionHandler:"></id>我们将以 `- [AFURLSessionManager dataTaskWithRequest:uploadProgress:downloadProgress:completionHandler:]` 方法的实现为例，分析它是如何实例化并返回一个 `NSURLSessionTask` 的实例的：
 
 ```objectivec
 - (NSURLSessionDataTask *)dataTaskWithRequest:(NSURLRequest *)request
