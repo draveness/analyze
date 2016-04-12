@@ -559,6 +559,8 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
 5. 实现了全部的代理方法来提供 block 接口
 6. 通过方法调剂在 data task 状态改变时，发出通知
 
+## 相关文章
+
 关于其他 AFNetworking 源代码分析的其他文章：
 
 + [AFNetworking 概述（一）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/AFNetworking/AFNetworking%20概述（一）.md)

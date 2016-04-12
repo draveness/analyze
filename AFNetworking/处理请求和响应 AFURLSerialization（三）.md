@@ -676,6 +676,10 @@ for (NSString *keyPath in AFHTTPRequestSerializerObservedKeyPaths()) {
 1. `AFURLResponseSerialization` 负责对返回的数据进行序列化
 2. `AFURLRequestSerialization` 负责生成 `NSMutableURLRequest`，为请求设置 HTTP 头部，管理发出的请求
 
+## 相关文章
+
+关于其他 AFNetworking 源代码分析的其他文章：
+
 + [AFNetworking 概述（一）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/AFNetworking/AFNetworking%20概述（一）.md)
 + [AFNetworking 的核心 AFURLSessionManager（二）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/AFNetworking/AFNetworking%20的核心%20AFURLSessionManager（二）.md)
 + [处理请求和响应 AFURLSerialization（三）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/AFNetworking/处理请求和响应%20AFURLSerialization（三）.md)
