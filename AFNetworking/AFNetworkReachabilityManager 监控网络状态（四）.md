@@ -301,4 +301,12 @@ self.reachabilityManager = [AFNetworkReachabilityManager sharedManager];
 1. `AFNetworkReachabilityManager` 实际上只是一个对底层 `SystemConfiguration` 库中的 C 函数封装的类，它为我们隐藏了 C 语言的实现，提供了统一的 Objective-C 语言接口
 2. 它是 `AFNetworking` 中一个即插即用的模块
 
+## 相关文章
+
+关于其他 AFNetworking 源代码分析的其他文章：
+
++ [AFNetworking 概述（一）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/AFNetworking/AFNetworking%20概述（一）.md)
++ [AFNetworking 的核心 AFURLSessionManager（二）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/AFNetworking/AFNetworking%20的核心%20AFURLSessionManager（二）.md)
++ [处理请求和响应 AFURLSerialization（三）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/AFNetworking/处理请求和响应%20AFURLSerialization（三）.md)
++ [AFNetworkReachabilityManager 监控网络状态（四）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/AFNetworking/AFNetworkReachabilityManager%20监控网络状态（四）.md)
 
