@@ -675,9 +675,9 @@ if (retSize) {
 
 ## End
 
-到这里对于 BlocksKit 的实现机制就基本上已经看完了。我们在来看一下 整个 BlocksKit 的结构图：
+到这里对于 BlocksKit 的实现机制就基本上已经看完了。我们再来看一下 整个 BlocksKit 的结构图：
 
-![](../images/blockskit.jpg)
+![](../images/blockskit.png)
 
 我写这篇文章大约用了七天的时间，如果你对其中的内容有些疑问，可以发邮件或者在下面留言。
 
