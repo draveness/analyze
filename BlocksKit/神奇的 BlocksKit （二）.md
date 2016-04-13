@@ -124,7 +124,7 @@ IMP setterImplementation = imp_implementationWithBlock(^(NSObject *delegatingObj
 
 我们已经自顶向下分析了 BlocksKit 的工作过程，也对这个部分有一个基本的了解，接下来我们将从底层到顶层分析整个 BlocksKit，我们再来看一下整个框架的结构图：
 
-![](../images/blockskit.jpg)
+![](../images/blockskit.png)
 
 我们将以下面的顺序来依次介绍这些模块，其中的 `UITextField` 可以换成其它的类：
 
