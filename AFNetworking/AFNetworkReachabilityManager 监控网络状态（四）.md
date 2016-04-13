@@ -1,5 +1,9 @@
 # AFNetworkReachabilityManager 监控网络状态（四）
 
+Blog: [Draveness](http://draveness.me)
+
+<iframe src="http://ghbtns.com/github-btn.html?user=draveness&type=follow&size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe>
+
 `AFNetworkReachabilityManager` 是对 `SystemConfiguration` 模块的封装，苹果的文档中也有一个类似的项目 [Reachability](https://developer.apple.com/library/ios/samplecode/reachability/) 这里对网络状态的监控跟苹果官方的实现几乎是完全相同的。
 
 同样在 github 上有一个类似的项目叫做 [Reachability](https://github.com/tonymillion/Reachability) 不过这个项目**由于跟命名的原因可能会在审核时被拒绝**。
@@ -309,4 +313,9 @@ self.reachabilityManager = [AFNetworkReachabilityManager sharedManager];
 + [AFNetworking 的核心 AFURLSessionManager（二）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/AFNetworking/AFNetworking%20的核心%20AFURLSessionManager（二）.md)
 + [处理请求和响应 AFURLSerialization（三）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/AFNetworking/处理请求和响应%20AFURLSerialization（三）.md)
 + [AFNetworkReachabilityManager 监控网络状态（四）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/AFNetworking/AFNetworkReachabilityManager%20监控网络状态（四）.md)
+
+<iframe src="http://ghbtns.com/github-btn.html?user=draveness&type=follow&size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe>
+
+Blog: [Draveness](http://draveness.me)
+
 
