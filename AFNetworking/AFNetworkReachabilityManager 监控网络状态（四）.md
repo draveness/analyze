@@ -6,7 +6,7 @@ Blog: [Draveness](http://draveness.me)
 
 `AFNetworkReachabilityManager` 是对 `SystemConfiguration` 模块的封装，苹果的文档中也有一个类似的项目 [Reachability](https://developer.apple.com/library/ios/samplecode/reachability/) 这里对网络状态的监控跟苹果官方的实现几乎是完全相同的。
 
-同样在 github 上有一个类似的项目叫做 [Reachability](https://github.com/tonymillion/Reachability) 不过这个项目**由于跟命名的原因可能会在审核时被拒绝**。
+同样在 github 上有一个类似的项目叫做 [Reachability](https://github.com/tonymillion/Reachability) 不过这个项目**由于命名的原因可能会在审核时被拒绝**。
 
 无论是 `AFNetworkReachabilityManager`，苹果官方的项目或者说 github 上的 Reachability，它们的实现都是类似的，而在这里我们会以 `AFNetworking` 中的 `AFNetworkReachabilityManager` 为例来说明在 iOS 开发中，我们是怎样监控网络状态的。
 
@@ -99,100 +99,90 @@ Blog: [Draveness](http://draveness.me)
 
 1. 先调用 `- stopMonitoring` 方法，如果之前设置过对网络状态的监听，使用 `SCNetworkReachabilityUnscheduleFromRunLoop` 方法取消之前在 Main Runloop 中的监听
 
-	```objectivec
-	- (void)stopMonitoring {
-	    if (!self.networkReachability) {
-	        return;
-	    }
-	
-	    SCNetworkReachabilityUnscheduleFromRunLoop((__bridge SCNetworkReachabilityRef)self.networkReachability, CFRunLoopGetMain(), kCFRunLoopCommonModes);
-	}
-	```
+		- (void)stopMonitoring {
+		    if (!self.networkReachability) {
+		        return;
+		    }
+		
+		    SCNetworkReachabilityUnscheduleFromRunLoop((__bridge SCNetworkReachabilityRef)self.networkReachability, CFRunLoopGetMain(), kCFRunLoopCommonModes);
+		}
 
 2. 创建一个在每次网络状态改变时的回调
 
-	```objectivec
-	__weak __typeof(self)weakSelf = self;
-	AFNetworkReachabilityStatusBlock callback = ^(AFNetworkReachabilityStatus status) {
-	    __strong __typeof(weakSelf)strongSelf = weakSelf;
-	
-	    strongSelf.networkReachabilityStatus = status;
-	    if (strongSelf.networkReachabilityStatusBlock) {
-	        strongSelf.networkReachabilityStatusBlock(status);
-	    }
-	
-	};
-	```
+		__weak __typeof(self)weakSelf = self;
+		AFNetworkReachabilityStatusBlock callback = ^(AFNetworkReachabilityStatus status) {
+		    __strong __typeof(weakSelf)strongSelf = weakSelf;
+		
+		    strongSelf.networkReachabilityStatus = status;
+		    if (strongSelf.networkReachabilityStatusBlock) {
+		        strongSelf.networkReachabilityStatusBlock(status);
+		    }
+		
+		};
 
 	+ 每次回调被调用时
 		+ 重新设置 `networkReachabilityStatus` 属性
 		+ 调用 `networkReachabilityStatusBlock`
 3. 创建一个 `SCNetworkReachabilityContext`
 
-	```objectivec
-	typedef struct {
-		CFIndex		version;
-		void *		__nullable info;
-		const void	* __nonnull (* __nullable retain)(const void *info);
-		void		(* __nullable release)(const void *info);
-		CFStringRef	__nonnull (* __nullable copyDescription)(const void *info);
-	} SCNetworkReachabilityContext;
-	
-	SCNetworkReachabilityContext context = {
-	    0,
-	    (__bridge void *)callback,
-	    AFNetworkReachabilityRetainCallback, 
-	    AFNetworkReachabilityReleaseCallback, 
-	    NULL
-	};
-	```
+		typedef struct {
+			CFIndex		version;
+			void *		__nullable info;
+			const void	* __nonnull (* __nullable retain)(const void *info);
+			void		(* __nullable release)(const void *info);
+			CFStringRef	__nonnull (* __nullable copyDescription)(const void *info);
+		} SCNetworkReachabilityContext;
+		
+		SCNetworkReachabilityContext context = {
+		    0,
+		    (__bridge void *)callback,
+		    AFNetworkReachabilityRetainCallback, 
+		    AFNetworkReachabilityReleaseCallback, 
+		    NULL
+		};
 	
 	+ 其中的 `callback` 就是上一步中的创建的 block 对象
 	+ 这里的 `AFNetworkReachabilityRetainCallback` 和 `AFNetworkReachabilityReleaseCallback` 都是非常简单的 block，在回调被调用时，只是使用 `Block_copy` 和 `Block_release` 这样的宏
 	+ 传入的 `info` 会以参数的形式在 `AFNetworkReachabilityCallback` 执行时传入
 
-	```objectivec
-	static const void * AFNetworkReachabilityRetainCallback(const void *info) {
-	    return Block_copy(info);
-	}
-	
-	static void AFNetworkReachabilityReleaseCallback(const void *info) {
-	    if (info) {
-	        Block_release(info);
-	    }
-	}
-	```
+		static const void * AFNetworkReachabilityRetainCallback(const void *info) {
+		    return Block_copy(info);
+		}
+		
+		static void AFNetworkReachabilityReleaseCallback(const void *info) {
+		    if (info) {
+		        Block_release(info);
+		    }
+		}
+
 
 4. 当目标的网络状态改变时，会调用传入的回调
+	
+		SCNetworkReachabilitySetCallback(
+		    (__bridge SCNetworkReachabilityRef)networkReachability,
+		    AFNetworkReachabilityCallback, 
+		    &context
+		);
 
-	```objectivec
-	SCNetworkReachabilitySetCallback(
-	    (__bridge SCNetworkReachabilityRef)networkReachability,
-	    AFNetworkReachabilityCallback, 
-	    &context
-	);
-	```
 
 5. 在 Main Runloop 中对应的模式开始监控网络状态
 
-	```objectivec
-	SCNetworkReachabilityScheduleWithRunLoop(
-	    (__bridge SCNetworkReachabilityRef)networkReachability, 
-	    CFRunLoopGetMain(), 
-	    kCFRunLoopCommonModes
-	);
-	```
+		SCNetworkReachabilityScheduleWithRunLoop(
+		    (__bridge SCNetworkReachabilityRef)networkReachability, 
+		    CFRunLoopGetMain(), 
+		    kCFRunLoopCommonModes
+		);
+
 
 6. 获取当前的网络状态，调用 callback
 
-	```objectivec
-dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),^{
-	    SCNetworkReachabilityFlags flags;
-	    if (SCNetworkReachabilityGetFlags((__bridge SCNetworkReachabilityRef)networkReachability, &flags)) {
-	        AFPostReachabilityStatusChange(flags, callback);
-	    }
-	});
-	```
+		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),^{
+		    SCNetworkReachabilityFlags flags;
+		    if (SCNetworkReachabilityGetFlags((__bridge SCNetworkReachabilityRef)networkReachability, &flags)) {
+		        AFPostReachabilityStatusChange(flags, callback);
+		    }
+		});
+
 
 在下一节中会介绍上面所提到的一些 C 函数以及各种回调。
 
