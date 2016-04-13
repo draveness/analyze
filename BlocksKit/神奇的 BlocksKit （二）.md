@@ -25,7 +25,7 @@ Blog: [Draveness](http://draveness.me)
 
 这里是我对这部分代码结构的理解：
 
-![](../images/blockskit.jpg)
+![](../images/blockskit.png)
 
 这篇文成首先会从上到下对整个工作原理进行概述，然后再从底层到顶层详细地解释这个框架的机制和原理。
 
