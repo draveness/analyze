@@ -1,5 +1,9 @@
 # 验证 HTTPS 请求的证书（五）
 
+Blog: [Draveness](http://draveness.me)
+
+<iframe src="http://ghbtns.com/github-btn.html?user=draveness&type=follow&size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe>
+
 自 iOS9 发布之后，由于新特性 [App Transport Security](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html) 的引入，在默认行为下是不能发送 HTTP 请求的。很多网站都在转用 HTTPS，而 `AFNetworking` 中的 `AFSecurityPolicy` 就是为了阻止中间人攻击，以及其它漏洞的工具。
 
 `AFSecurityPolicy` 主要作用就是验证 HTTPS 请求的证书是否有效，如果 app 中有一些敏感信息或者涉及交易信息，一定要使用 HTTPS 来保证交易或者用户信息的安全。
@@ -362,4 +366,19 @@ if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthent
 
 + `AFSecurityPolicy` 同样也作为一个即插即用的模块，在 AFNetworking 中作为验证 HTTPS 证书是否有效的模块存在，在 iOS 对 HTTPS 日渐重视的今天，在我看来，使用 HTTPS 会成为今后 API 开发的标配。
 
+
+## 相关文章
+
+关于其他 AFNetworking 源代码分析的其他文章：
+
++ [AFNetworking 概述（一）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/AFNetworking/AFNetworking%20概述（一）.md)
++ [AFNetworking 的核心 AFURLSessionManager（二）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/AFNetworking/AFNetworking%20的核心%20AFURLSessionManager（二）.md)
++ [处理请求和响应 AFURLSerialization（三）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/AFNetworking/处理请求和响应%20AFURLSerialization（三）.md)
++ [AFNetworkReachabilityManager 监控网络状态（四）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/AFNetworking/AFNetworkReachabilityManager%20监控网络状态（四）.md)
++ [验证 HTTPS 请求的证书（五）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/AFNetworking/验证%20HTTPS%20请求的证书（五）.md)
+
+
+<iframe src="http://ghbtns.com/github-btn.html?user=draveness&type=follow&size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe>
+
+Blog: [Draveness](http://draveness.me)
 
