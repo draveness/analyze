@@ -82,7 +82,9 @@ AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[[
 ```
 
 > 注意：在 iOS9 中，苹果默认全局 HTTPs，如果你要发送不安全的 HTTP 请求，需要在 info.plist 中加入如下键值对才能发出不安全的 HTTP 请求
-> ![afnetworking-plist](../images/afnetworking-plist.png)
+
+>  ![afnetworking-plist](../images/afnetworking-plist.png)
+
 > 还有一件事情是要注意的是，AFNetworking 默认接收 json 格式的响应（因为这是在 iOS 平台上的框架，一般不需要 text/html），如果想要返回 html，需要设置 `acceptableContentTypes`
 
 ## AFNetworking 的调用栈
