@@ -30,9 +30,9 @@
 
 + 如果在文章中发现了问题，欢迎 PR 以及 issue
 
-## License
+## 转载
 
-本作品采用创作共用署名2.5中国大陆版许可证授权。如要查看许可证全文，请访问如下网址 [创作共用署名2.5中国大陆版许可证](http://creativecommons.org/licenses/by/2.5/cn)
+本作品采用创作共用署名 2.5 中国大陆版许可证授权。如要查看许可证全文，请访问如下网址 [创作共用署名2.5中国大陆版许可证](http://creativecommons.org/licenses/by/2.5/cn)，转载请注明出处
 
 ![](http://i.creativecommons.org/l/by/2.5/cn/88x31.png)
 
