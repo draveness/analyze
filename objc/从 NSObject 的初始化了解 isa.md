@@ -59,7 +59,7 @@ struct objc_class : objc_object {
 下面这张图介绍了对象，类与元类之间的关系，笔者认为已经觉得足够清晰了，所以不在赘述。
 
 <p align='center'>
-![](../images/objc-isa-class-diagram.jpg)
+![](../images/objc-isa-class-diagram.png)
 
 > 图片来自 [objc_explain_Classes_and_metaclasses](http://www.sealiesoftware.com/blog/archive/2009/04/14/objc_explain_Classes_and_metaclasses.html)
 
