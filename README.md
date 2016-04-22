@@ -30,7 +30,7 @@
 
 + 如果在文章中发现了问题，欢迎 PR 以及 issue
 
-## Lisence
+## License
 
 本作品采用创作共用署名2.5中国大陆版许可证授权。如要查看许可证全文，请访问如下网址 [创作共用署名2.5中国大陆版许可证](http://creativecommons.org/licenses/by/2.5/cn)
 
