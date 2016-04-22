@@ -26,5 +26,13 @@
 + Masonry
     + [iOS 源代码分析 --- Masonry](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/Masonry/iOS%20源代码分析%20---%20Masonry.md)
 
+## 勘误
 
++ 如果在文章中发现了问题，欢迎 PR 以及 issue
+
+## Lisence
+
+本作品采用创作共用署名2.5中国大陆版许可证授权。如要查看许可证全文，请访问如下网址 [创作共用署名2.5中国大陆版许可证](http://creativecommons.org/licenses/by/2.5/cn)
+
+![](http://i.creativecommons.org/l/by/2.5/cn/88x31.png)
 
