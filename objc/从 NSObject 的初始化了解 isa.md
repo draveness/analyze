@@ -1,4 +1,4 @@
-# 从 isa 的初始化了解 isa
+# 从 NSObject 的初始化了解 isa
 
 > 因为 ObjC 的 runtime 只能在 Mac OS 下才能编译，所以文章中的代码都是在 Mac OS，也就是 `x86_64` 架构下运行的，对于在 arm64 中运行的代码会特别说明。
 
