@@ -311,7 +311,7 @@ static Class realizeClass(Class cls)
 ![objc-method-breakpoint-before-set-r](../images/objc-method-breakpoint-before-set-rw.png)
 
 
-这个断点就设置在这里，因为 `XXObject` 是一个正常的类，所以会走 `else` 分支分配可写的类数据。
+这个断点就设置在这里，因为 `XXObject` 是一个正常的类，所以会走 `else` 分支为**可写的类数据**分配内存。
 
 > 运行代码时，因为每次都会判断当前类指针是不是指向的 `XXObject`，所以会等一会才会进入断点。
 
@@ -414,7 +414,7 @@ rw->flags = RW_REALIZED|RW_REALIZING;
 cls->setData(rw);
 ```
 
-在上述的代码运行之后，类的只读指针 `class_ro_t` 以及可读写指针 `class_rw_t` 都被正确的设置了。但是到这里，其 `class_rw_t` 部分的方法等成员都指针均为空，这些会在 `methodizeClass` 中进行设置：
+在上述的代码运行之后，类的只读指针 `class_ro_t` 以及可读写指针 `class_rw_t` 都被正确的设置了。但是到这里，其 `class_rw_t` 部分的方法等成员的指针 `methods`、 `protocols` 和 `properties` 均为空，这些会在 `methodizeClass` 中进行设置：
 
 <p align="center">
 ![objc-method-after-methodizeClass](../images/objc-method-after-methodizeClass.png)
@@ -452,7 +452,7 @@ imp = 0x0000000100000e90 (method`-[XXObject hello] at XXObject.m:13
 
 ## 小结
 
-在分析方法在内存中的位置时，笔者最开始一直在尝试寻找**只读**结构体 `class_ro_t` 中的 `baseMethods` 第一次设置的位置（了解类的方法是如何被加载的）。尝试从 `methodizeClass` 方法一直向上找，直到 `_obj_init` 方法也没有找到设置只读区域的 `baseMethods` 的方法。
+在分析方法在内存中的位置时，笔者最开始一直在尝试寻找**只读**结构体 `class_ro_t` 中 `baseMethods` 第一次设置的位置（了解类的方法是如何被加载的）。尝试从 `methodizeClass` 方法一直向上找，直到 `_obj_init` 方法也没有找到设置只读区域的 `baseMethods` 的方法。
 
 而且在 runtime 初始化之后，`realizeClass` 之前，从 `class_data_bits_t` 结构体中获取的 `class_rw_t` 一直都是错误的，这个问题在最开始非常让我困惑，直到后来在 `realizeClass` 中发现原来在这时并不是 `class_rw_t` 结构体，而是`class_ro_t`，才明白错误的原因。
 
