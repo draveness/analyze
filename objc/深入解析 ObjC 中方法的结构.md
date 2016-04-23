@@ -131,7 +131,7 @@ struct class_ro_t {
 ![objc-method-before-realize](../images/objc-method-before-realize.png)
 
 
-然后在加载 *ObjC 运行时*的过程中在 `realizeClass` 方法中：
+然后在加载 *ObjC 运行时*的时候调用 `realizeClass` 方法：
 
 1. 从 `class_data_bits_t` 调用 `data` 方法，将结果从 `class_rw_t` 强制转换为 `class_ro_t` 指针
 2. 初始化一个 `class_rw_t` 结构体
