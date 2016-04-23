@@ -6,7 +6,6 @@
 
 这篇文章的首先会根据 ObjC 源代码来分析方法在内存中的存储结构，然后在 lldb 调试器中一步一步验证分析的正确性。
 
-
 ## 方法在内存中的位置
 
 先来了解一下 ObjC 中类的结构图：
@@ -468,4 +467,6 @@ imp = 0x0000000100000e90 (method`-[XXObject hello] at XXObject.m:13
 + [Tagged Pointer](https://en.wikipedia.org/wiki/Tagged_pointer)
 + [类型编码](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html)
 + [Type Encodings](http://nshipster.cn/type-encodings/)
+
+Follow: [@Draveness](https://github.com/Draveness)
 

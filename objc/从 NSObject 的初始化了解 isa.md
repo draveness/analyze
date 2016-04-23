@@ -365,4 +365,5 @@ union isa_t {
 + [ARM64 and You](https://www.mikeash.com/pyblog/friday-qa-2013-09-27-arm64-and-you.html)
 + [64位与Tagged Pointer](http://blog.xcodev.com/posts/tagged-pointer-and-64-bit/)
 
+Follow: [@Draveness](https://github.com/Draveness)
 
