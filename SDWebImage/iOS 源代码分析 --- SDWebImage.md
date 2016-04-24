@@ -581,3 +581,6 @@ SDWebImage 中为 UIView 提供了一个分类叫做 WebCache, 这个分类中�
 
 `SDWebImage` 的探索到目前为止差不多结束了, 对于这个框架的学习以及解析确实使我受益匪浅, 我也将在之后继续阅读其它的著名框架的源代码. 在这篇博客之中难免会有错误, 希望各位能够指正~
 
+Follow: [@Draveness](https://github.com/Draveness)
+
+

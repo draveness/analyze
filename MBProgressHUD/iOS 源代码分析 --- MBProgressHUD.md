@@ -344,6 +344,6 @@ self.showStarted = [NSDate date]
 
 <iframe src="http://ghbtns.com/github-btn.html?user=draveness&type=follow&size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe>
 
-Blog: [draveness.me](http://draveness.me)
+Follow: [@Draveness](https://github.com/Draveness)
 
 

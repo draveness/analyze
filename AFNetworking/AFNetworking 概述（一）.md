@@ -142,8 +142,6 @@ AFNetworking 实际上只是对 `NSURLSession` 高度地封装, 提供一些简�
 + [验证 HTTPS 请求的证书（五）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/AFNetworking/验证%20HTTPS%20请求的证书（五）.md)
 
 
-Blog: [Draveness](http://draveness.me)
-
-<iframe src="http://ghbtns.com/github-btn.html?user=draveness&type=follow&size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe> 
+Follow: [@Draveness](https://github.com/Draveness)
 
 
