@@ -34,7 +34,7 @@ struct objc_class : objc_object {
 
 到这里，我们就明白了：**Objective-C 中类也是一个对象**。
 
-这个 `isa` 包含了什么呢？回答这个问题之前，要引入了另一个概念 *元类(meta class)*，我们先了解一些关于元类的信息。
+这个 `isa` 包含了什么呢？回答这个问题之前，要引入了另一个概union isa_t念 *元类(meta class)*，我们先了解一些关于元类的信息。
 
 因为在 Objective-C 中，对象的方法并**没有存储于对象的结构体中**（如果每一个对象都保存了自己能执行的方法，那么对内存的占用有极大的影响）。
 
@@ -106,7 +106,7 @@ union isa_t {
 ```objectivec
 union isa_t {
     ...
-};
+};
 ```
 
 `isa_t` 是一个 `union` 类型的结构体，对 `union` 不熟悉的读者可以看这个 stackoverflow 上的[回答](http://stackoverflow.com/questions/252552/why-do-we-need-c-unions). 也就是说其中的 `isa_t`、`cls`、 `bits` 还有结构体共用同一块地址空间。而 `isa` 总共会占据 64 位的内存空间（决定于其中的结构体）
