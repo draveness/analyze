@@ -15,7 +15,10 @@
 
 5. 方法在内存中存储的位置，[深入解析 ObjC 中方法的结构](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/objc/深入解析%20ObjC%20中方法的结构.md)（可选）
 
-> 文章中不会刻意区别方法和函数、消息传递和方法调用之间的区别。
+    > 文章中不会刻意区别方法和函数、消息传递和方法调用之间的区别。
+
+6. 能翻墙（会有一个 Youtube 的链接）
+
 
 ## 概述
 
