@@ -180,7 +180,7 @@ int main(int argc, const char * argv[]) {
 <p align='center'>
 ![objc-message-wrong-step-in](../images/objc-message-wrong-step-in.gif)
 
-因为 `objc_msgSend` 是一个私有方法，我们没有办法进入它的实现，但是，我们却可以在 `objc_msgSend` 的调用栈中“截取”这个函数调用的过程。
+因为 `objc_msgSend` 是一个私有方法，我们没有办法进入它的实现，但是，我们却可以在 `objc_msgSend` 的调用栈中“截下”这个函数调用的过程。
 
 调用 `objc_msgSend` 时，传入了 `self` 以及 `SEL` 参数。
 
