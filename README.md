@@ -1,7 +1,7 @@
 # iOS-Source-Code-Analyze
 
 <p align='center'>
-  <a href="https://dribbble.com/levine"><img src='images/banner.png'></a>
+  <a href="https://dribbble.com/levine" target="_blank"><img src='images/banner.png'></a>
 </p>
 
 ## 为什么要建这个仓库
