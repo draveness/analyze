@@ -1,7 +1,7 @@
 # iOS-Source-Code-Analyze
 
 <p align='center'>
-![](../images/banner.png)
+![](images/banner.png)
 
 ## 为什么要建这个仓库
 
