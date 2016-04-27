@@ -2,7 +2,7 @@
 
 <p align='center'>
 ![](images/banner.png)
-</p>
+
 <p align='center'>
   Designed By <a href="https://dribbble.com/levine">Levine</a>
 </p>
