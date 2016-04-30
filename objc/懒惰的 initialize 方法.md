@@ -291,7 +291,7 @@ static void _finishInitializing(Class cls, Class supercls)
 3. `initialize` 的运行是线程安全的
 4. 子类会**继承**父类的 `initialize` 方法
 
-而其作用也非常局限，一般我们只会将 `initialize` 方法用作某些常量的初始化的地方。
+而其作用也非常局限，一般我们只会在 `initialize` 方法中进行一些常量的初始化。
 
 ## 参考资料
 
