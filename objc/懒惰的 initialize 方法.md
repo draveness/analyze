@@ -291,6 +291,8 @@ static void _finishInitializing(Class cls, Class supercls)
 3. `initialize` 的运行是线程安全的
 4. 子类会**继承**父类的 `initialize` 方法
 
+而其作用也非常局限，一般我们只会将 `initialize` 方法用作某些常量的初始化的地方。
+
 ## 参考资料
 
 + [What is a meta-class in Objective-C?](http://www.cocoawithlove.com/2010/01/what-is-meta-class-in-objective-c.html)
