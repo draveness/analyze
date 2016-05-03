@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual C++ Express 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "objc", "objc.vcproj", "{B3408263-0CF1-47BE-83CC-56070EFC9BC1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "objcrt", "objcrt\objcrt.vcproj", "{E38C1996-8B3D-4050-A4B2-DC85957B047D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B3408263-0CF1-47BE-83CC-56070EFC9BC1} = {B3408263-0CF1-47BE-83CC-56070EFC9BC1}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		DebugDLL|Win32 = DebugDLL|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3408263-0CF1-47BE-83CC-56070EFC9BC1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B3408263-0CF1-47BE-83CC-56070EFC9BC1}.Debug|Win32.Build.0 = Debug|Win32
+		{B3408263-0CF1-47BE-83CC-56070EFC9BC1}.DebugDLL|Win32.ActiveCfg = DebugDLL|Win32
+		{B3408263-0CF1-47BE-83CC-56070EFC9BC1}.DebugDLL|Win32.Build.0 = DebugDLL|Win32
+		{B3408263-0CF1-47BE-83CC-56070EFC9BC1}.Release|Win32.ActiveCfg = Release|Win32
+		{B3408263-0CF1-47BE-83CC-56070EFC9BC1}.Release|Win32.Build.0 = Release|Win32
+		{E38C1996-8B3D-4050-A4B2-DC85957B047D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E38C1996-8B3D-4050-A4B2-DC85957B047D}.Debug|Win32.Build.0 = Debug|Win32
+		{E38C1996-8B3D-4050-A4B2-DC85957B047D}.DebugDLL|Win32.ActiveCfg = Debug|Win32
+		{E38C1996-8B3D-4050-A4B2-DC85957B047D}.DebugDLL|Win32.Build.0 = Debug|Win32
+		{E38C1996-8B3D-4050-A4B2-DC85957B047D}.Release|Win32.ActiveCfg = Release|Win32
+		{E38C1996-8B3D-4050-A4B2-DC85957B047D}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
