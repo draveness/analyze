@@ -1,4 +1,4 @@
-# ![](images/logo.png) iOS-Source-Code-Analyze
+# <img src='images/logo.png' height="28" width="28"> iOS-Source-Code-Analyze
 
 <p align='center'>
   <img src='images/banner.png'>
