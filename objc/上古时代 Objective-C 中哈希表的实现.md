@@ -1,8 +1,5 @@
 # 上古时代 Objective-C 中哈希表的实现
 
-> 关注仓库，及时获得更新：[iOS-Source-Code-Analyze](https://github.com/draveness/iOS-Source-Code-Analyze)
-> Follow: [Draveness · Github](https://github.com/Draveness)
-
 > 因为 ObjC 的 runtime 只能在 Mac OS 下才能编译，所以文章中的代码都是在 Mac OS，也就是 `x86_64` 架构下运行的，对于在 arm64 中运行的代码会特别说明。
 
 ## 写在前面
@@ -760,7 +757,6 @@ Created by Bertrand Serlet, Feb 89
 
 不过现在，我们会使用 `NSHashTable` 来取代这个上古时代的产物。
 
-> 关注仓库，及时获得更新：[iOS-Source-Code-Analyze](https://github.com/draveness/iOS-Source-Code-Analyze)
 > Follow: [Draveness · Github](https://github.com/Draveness)
 
 
