@@ -1,9 +1,6 @@
 # 神奇的 BlocksKit （二）
 
-
 Blog: [Draveness](http://draveness.me)
-
-<iframe src="http://ghbtns.com/github-btn.html?user=draveness&type=follow&size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe> 
 
 这篇文章『神奇的 BlocksKit』的第二部分，关于第一部分的内容在这里：
 
@@ -13,7 +10,9 @@ Blog: [Draveness](http://draveness.me)
 
 ## 动态代理
 
-动态代理这部分可以说是 BlocksKit 的精华。它**使用 block 属性替换 UIKit 中的所有能够通过代理完成的事件**，省略了设置代理和实现方法的过程，让对象自己实现代理方法（其实不是对象自己实现的代理方法，只是框架为我们提供的便捷方法，不需要构造其它对象就能完成代理方法的实现，具体我们会在后面详细地解释），而且这个功能的实现是极其动态的。
+动态代理这部分可以说是 BlocksKit 的精华。它**使用 block 属性替换 UIKit 中的所有能够通过代理完成的事件**，省略了设置代理和实现方法的过程，让对象自己实现代理方法，而且这个功能的实现是极其动态的。
+
+> 其实不是对象自己实现的代理方法，只是框架为我们提供的便捷方法，不需要构造其它对象就能完成代理方法的实现，具体我们会在后面详细地解释。
 
 下面是这部分几个关键的类：
 
