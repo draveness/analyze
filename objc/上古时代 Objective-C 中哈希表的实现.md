@@ -12,7 +12,7 @@
 
 `NXHashTable` 的实现有着将近 30 年的历史，不过仍然作为重要的底层数据结构存储整个应用中的类。
 
-> 文中会涉及一些数据结构方面的简单知识。
+> 文中会涉及一些数据结构方面的简单知识，例如[拉链法](https://en.wikipedia.org/wiki/Hash_table#Separate_chaining_with_linked_lists)。
 > 
 > 注意：**文章中分析的不是 `NSHashTable` 而是 `NXHashTable`。**
 
