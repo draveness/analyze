@@ -492,7 +492,7 @@ int NXNextHashState (NXHashTable *table, NXHashState *state, void **data) {
 };
 ```
 
-下面的 gif 为我么么展示了每一次调用 `NXNextHashState` 方法之后当前的 `NXHashState`：
+下面的 gif 为我们展示了每一次调用 `NXNextHashState` 方法之后当前的 `NXHashState`：
 
 ![objc-hashtable-hashstate-next](../images/objc-hashtable-hashstate-next.gif)
 
