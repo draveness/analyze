@@ -18,6 +18,7 @@
     + [你真的了解 load 方法么？](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/objc/你真的了解%20load%20方法么？.md)
     + [懒惰的 initialize](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/objc/懒惰的%20initialize%20方法.md)
     + [上古时代 Objective-C 中哈希表的实现](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/objc/上古时代%20Objective-C%20中哈希表的实现.md)
+    + [自动释放池的前世今生](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/objc/自动释放池的前世今生.md)
 + DKNightVersion（2.3.0）
     + [成熟的夜间模式解决方案](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/DKNightVersion/成熟的夜间模式解决方案.md)
 + AFNetworking（3.0.4）
