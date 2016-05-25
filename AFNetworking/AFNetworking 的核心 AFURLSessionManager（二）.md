@@ -151,7 +151,7 @@ Blog: [Draveness](http://draveness.me)
 }
 ```
 
-正如上面所提到的，`AFNRUSessionManager` 就是通过字典 `mutableTaskDelegatesKeyedByTaskIdentifier` 来存储并管理每一个 `NSURLSessionTask`，它以 `taskIdentifier` 为键存储 task。
+正如上面所提到的，`AFURLSessionManager` 就是通过字典 `mutableTaskDelegatesKeyedByTaskIdentifier` 来存储并管理每一个 `NSURLSessionTask`，它以 `taskIdentifier` 为键存储 task。
 
 该方法使用 `NSLock` 来保证不同线程使用 `mutableTaskDelegatesKeyedByTaskIdentifier` 时，不会出现**线程竞争**的问题。
 
