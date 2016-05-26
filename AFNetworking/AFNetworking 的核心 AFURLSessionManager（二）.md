@@ -495,7 +495,7 @@ didFinishDownloadingToURL:(NSURL *)location
 3. 取得当前类 `_AFURLSessionTaskSwizzling` 中的实现 `af_resume`
 4. 如果当前类 `currentClass` 有 `resume` 方法
 	+ 真：5
-	+ 假：7
+	+ 假：6
 5. 使用 `swizzleResumeAndSuspendMethodForClass:` 调剂该类的 `resume` 和 `suspend` 方法
 6. `currentClass = [currentClass superclass]` 
 
