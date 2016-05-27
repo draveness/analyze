@@ -328,6 +328,33 @@ bool objc_object::rootRelease(bool performDealloc, bool handleUnderflow) {
 
 不过为了确保消息只会发送一次，我们使用 `deallocating` 标记位。
 
+## 获取自动引用计数
+
+在文章的最结尾，笔者想要介绍一下 `retainCount` 的值是怎么计算的，我们直接来看 `retainCount` 方法的实现：
+
+```objectivec
+- (NSUInteger)retainCount {
+    return ((id)self)->rootRetainCount();
+}
+
+inline uintptr_t objc_object::rootRetainCount() {
+    isa_t bits = LoadExclusive(&isa.bits);
+    uintptr_t rc = 1 + bits.extra_rc;
+    if (bits.has_sidetable_rc) {
+        rc += sidetable_getExtraRC_nolock();
+    }
+    return rc;
+}
+```
+
+ 根据方法的实现，retainCount 有三部分组成：
+ 
+ + 1
+ + `extra_rc` 中存储的值
+ + `sidetable_getExtraRC_nolock` 返回的值
+
+这也就证明了我们之前得到的结论。
+
 ## 小结
 
 我们在这篇文章中已经介绍了 `retain` 和 `release` 这一对用于内存管理的方法是如何实现的，这里总结一下文章一下比较重要的问题。
