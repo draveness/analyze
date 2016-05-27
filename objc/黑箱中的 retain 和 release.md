@@ -52,7 +52,7 @@ id objc_object::rootRetain() {
 
 `extra_rc` 就是用于保存自动引用计数的标志位，下面就是 `isa` 结构体中的结构：
 
-![objc-rr-isa-struct](media/14634857467007/objc-rr-isa-struct.png)
+![objc-rr-isa-struct](../images/objc-rr-isa-struct.png)
 
 接下来我们会分三种情况对 `rootRetain` 进行分析。
 
