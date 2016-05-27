@@ -9,4 +9,7 @@
     + [从源代码看 ObjC 中消息的发送](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/objc/从源代码看%20ObjC%20中消息的发送.md)
     + [你真的了解 load 方法么？](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/objc/你真的了解%20load%20方法么？.md)
     + [懒惰的 initialize](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/objc/懒惰的%20initialize%20方法.md)
+    + [自动释放池的前世今生](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/objc/自动释放池的前世今生.md)
+    + [黑箱中的 retain 和 release](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/objc/黑箱中的%20retain%20和%20release.md)
+
 
