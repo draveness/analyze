@@ -24,13 +24,13 @@ pod 'IQKeyboardManager'
 
 说是架构分析，其实只是对 [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager) 中包含的类以及文件有一个粗略地了解，研究一下这个项目的层级是什么样的。
 
-![IQKeyboardManager-Hierarchy](media/14658174011193/IQKeyboardManager-Hierarchy.png)
+![IQKeyboardManager-Hierarchy](images/IQKeyboardManager-Hierarchy.png)
 
 整个项目中最核心的部分就是 `IQKeyboardManager` 这个类，它负责**管理键盘出现或者隐藏时视图移动的距离**，是整个框架中最核心的部分。
 
 在这个框架中还有一些用于支持 IQKeyboardManager 的分类，以及显示在键盘上面的 IQToolBar：
 
-![IQToolBa](media/14658174011193/IQToolBar.png)
+![IQToolBa](images/IQToolBar.png)
 
 使用红色标记的部分就是 `IQToolBar`，左侧的按钮可以在不同的 `UITextField` 之间切换，中间的文字是 `UITextField.placeholderText`，右边的 `Done` 应该就不需要解释了。
 
@@ -197,7 +197,7 @@ UITextFieldTextDidEndEditingNotification
 
 然后运行工程，在 Demo 中点击一个 `UITextField`
 
-![easiest-integration-demo](media/14658174011193/easiest-integration-demo.png)
+![easiest-integration-demo](images/easiest-integration-demo.png)
 
 上面的操作会打印出如下所示的 Log：
 
@@ -253,7 +253,7 @@ IQKeyboardManager: ****** keyboardWillShow: ended ******
 + 指示当前 `UITextField` 的 placeholder
 + Done Button
 
-![IQToolBarIte](media/14658174011193/IQToolBarItem.png)
+![IQToolBarIte](images/IQToolBarItem.png)
 
 
 > 这些 item 都是 `IQBarButtonItem` 的子类
@@ -380,7 +380,7 @@ _topViewBeginRect = _rootViewController.view.frame;
 
 通过点击 `IQToolBar` 上面的 done 按钮，键盘就会隐藏：
 
-![IQKeyboardManager-hide-keyboard](media/14658174011193/IQKeyboardManager-hide-keyboard.png)
+![IQKeyboardManager-hide-keyboard](images/IQKeyboardManager-hide-keyboard.png)
 
 键盘隐藏的过程中会依次调用下面的三个方法：
 
@@ -433,13 +433,13 @@ _startingContentOffset = CGPointZero;
 
 因为框架的功能是基于通知实现的，所以通知的时序至关重要，在 `IQKeyboardManagerConstants.h` 文件中详细地描述了在编辑 `UITextField` 的过程中，通知触发的先后顺序。
 
-![notification-IQKeyboardManage](media/14658174011193/notification-IQKeyboardManager.png)
+![notification-IQKeyboardManage](images/notification-IQKeyboardManager.png)
 
 > 上图准确说明了通知发出的时机，透明度为 50% 的部分表示该框架没有监听这个通知。
 
 而 `UITextView` 的通知机制与 `UITextField` 略有不同：
 
-![UITextView-Notification-IQKeyboardManage](media/14658174011193/UITextView-Notification-IQKeyboardManager.png)
+![UITextView-Notification-IQKeyboardManage](images/UITextView-Notification-IQKeyboardManager.png)
 
 当 Begin Editing 这个事件发生时，`UITextView` 的通知机制会先发出 `UIKeyboardWillShowNotification` 通知，而 `UITextField` 会先发出 `UITextFieldTextDidBeginEditingNotification` 通知。
 
