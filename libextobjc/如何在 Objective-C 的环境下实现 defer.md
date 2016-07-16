@@ -1,9 +1,5 @@
 # 如何在 Objective-C 的环境下实现 defer
 
-> 关注仓库，及时获得更新：[iOS-Source-Code-Analyze](https://github.com/draveness/iOS-Source-Code-Analyze)
-> 
-> Follow: [Draveness · Github](https://github.com/Draveness)
-
 这篇文章会对 [libextobjc](https://github.com/jspahrsummers/libextobjc) 中的一小部分代码进行分析，也是**如何扩展 Objective-C 语言**系列文章的第一篇，笔者会从 libextobjc 中选择一些黑魔法进行介绍。
 
 对 Swift 稍有了解的人都知道，`defer` 在 Swift 语言中是一个关键字；在 `defer` 代码块中的代码，会**在作用域结束时执行**。在这里，我们会使用一些神奇的方法在 Objective-C 中实现 `defer`。
@@ -152,7 +148,6 @@ __strong ext_cleanupBlock_t ext_exitBlock_19 __attribute__((cleanup(ext_executeC
 
 libextobjc 将 `cleanup` 这一变量属性，很好地包装成了 `@onExit`，它的实现也是比较有意思的，也激起了笔者学习 GCC 编译命令并且阅读一些文档的想法。
 
-
-
+> Follow: [Draveness · Github](https://github.com/Draveness)
 
 
