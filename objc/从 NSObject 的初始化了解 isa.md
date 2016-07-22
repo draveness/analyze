@@ -10,7 +10,7 @@ struct objc_object {
 };
 ```
 
-当 ObjC 为为一个对象分配内存，初始化实例变量后，在这些对象的实例变量的结构体中的第一个就是 `isa`。
+当 ObjC 为一个对象分配内存，初始化实例变量后，在这些对象的实例变量的结构体中的第一个就是 `isa`。
 
 <p align='center'>
 ![objc-isa-class-object](../images/objc-isa-class-object.png)
