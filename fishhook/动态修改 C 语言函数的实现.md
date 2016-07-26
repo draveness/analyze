@@ -109,8 +109,6 @@ extern void _dyld_register_func_for_add_image(
 
 对于每一个已经存在的镜像，当它被**动态链接**时，都会执行回调 `void (*func)(const struct mach_header* mh, intptr_t vmaddr_slide)`，传入文件的 `mach_header` 以及一个虚拟内存地址 `intptr_t`。
 
-需要注意的是，dyld 只负责将一些需要动态链接的库加载进来，比如说 C 语言标准库，或者 Foundation 这些 ObjC 提供的库；而我们自己在程序中写的代码是不会通过 dyld 进行加载的。
-
 以一个最简单的 Hello World 程序为例：
 
 ```c
@@ -509,9 +507,7 @@ int main(int argc, const char * argv[]) {
 
 ![fishhook-hello-breakpoint](images/fishhook-hello-breakpoint.png)
 
-代码并不会进这里，因为 hello 这个函数并不在任何的镜像中存在，这也符合在最开始我们研究 dyld 时得出的结论：
-
-> dyld 只负责将一些需要动态链接的库加载进来，比如说 C 语言标准库，或者 Foundation 这些 ObjC 提供的库；而我们自己在程序中写的代码是不会通过 dyld 进行加载的，也就无法修改其实现。
+代码并不会进这里，因为 `hello` 这个函数是包含在当前镜像的，它只是从其它代码地址跳转到了当前函数实现，这与我们调用外部库时有很大的不同，当调用外部库时，我们需要 dyld 解决函数地址的问题，但是函数在当前镜像中却并不需要 [issue #25](https://github.com/facebook/fishhook/issues/25)。
 
 ## 小结
 
