@@ -513,11 +513,11 @@ int main(int argc, const char * argv[]) {
 hook functions that exist in the same image (library or executable) as your
 currently running code.
 
-The reason for this is that there's no indirection that happens when you
+> The reason for this is that there's no indirection that happens when you
 call a function in your own executable.  It's just a plain jump to another
 code address in your executable.
 
-That's very different from calling a function in an external library, where
+> That's very different from calling a function in an external library, where
 your executable uses dyld to figure out the address of the function being
 called before jumping to it.
 
