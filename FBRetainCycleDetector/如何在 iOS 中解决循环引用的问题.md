@@ -23,7 +23,7 @@ testObject7.object = testObject2;
 这一次分享的内容就是用于检测循环引用的框架 [FBRetainCycleDetector]([https://github.com/facebook/FBRetainCycleDetector]) 我们会分几个部分来分析 FBRetainCycleDetector 是如何工作的：
 
 1. 检测循环引用的基本原理以及过程
-2. 检测设计 NSObject 对象的循环引用问题
+2. 检测涉及 NSObject 对象的循环引用问题
 2. 检测涉及 Associated Object 关联对象的循环引用问题
 3. 检测涉及 Block 的循环引用问题
 
