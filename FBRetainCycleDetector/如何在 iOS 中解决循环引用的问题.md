@@ -18,7 +18,7 @@ testObject7.object = testObject2;
 
 上述代码确实是存在循环引用的问题：
 
-![detector-retain-objects](media/14698008364071/detector-retain-objects.png)
+![detector-retain-objects](images/retain-objects.png)
 
 这一次分享的内容就是用于检测循环引用的框架 [FBRetainCycleDetector]([https://github.com/facebook/FBRetainCycleDetector]) 我们会分几个部分来分析 FBRetainCycleDetector 是如何工作的：
 
