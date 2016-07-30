@@ -507,7 +507,7 @@ int main(int argc, const char * argv[]) {
 
 ![fishhook-hello-breakpoint](images/fishhook-hello-breakpoint.png)
 
-代码并不会进这里，因为 `hello` 这个函数是包含在当前镜像的，它只是从其它代码地址跳转到了当前函数实现，这与我们调用外部库时有很大的不同，当调用外部库时，我们需要 dyld 解决函数地址的问题，但是函数在当前镜像中却并不需要 [issue #25](https://github.com/facebook/fishhook/issues/25)。
+代码并不会进这里，因为 `hello` 这个函数是包含在当前镜像的，它只是从当前镜像的其它代码地址跳转到了当前函数实现，只是一个普通的跳转;这与我们调用外部库时有很大的不同，当调用外部库时，我们需要 dyld 解决函数地址的问题，但是函数在当前镜像中却并不需要 [issue #25](https://github.com/facebook/fishhook/issues/25)。
 
 > fishhook can only hook functions that exist in other libraries.  It cannot
 hook functions that exist in the same image (library or executable) as your
