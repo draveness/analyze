@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="objcrt"
+	ProjectGUID="{E38C1996-8B3D-4050-A4B2-DC85957B047D}"
+	RootNamespace="objcrt"
+	>
+	<Platforms>
+		<Platform
+			Name="Win32"
+		/>
+	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="10"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+				CommandLine="cl /nologo /c /MDd /D_DEBUG /Od /Zl /DYNAMICBASE /GS /I&quot;%DSTROOT%\AppleInternal\include&quot; /I&quot;%SRCROOT%\AppleInternal\include&quot; /I&quot;$(ProjectDir)\runtime&quot; /D&quot;_WINDOWS&quot; /Dnil=0 ..\runtime\objcrt.c /Fo&quot;$(OutDir)\objcrt_debug.obj"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="xcopy /Y &quot;$(OutDir)\objcrt_debug.obj&quot; &quot;%DSTROOT%\AppleInternal\lib&quot;"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="10"
+			CharacterSet="2"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+				CommandLine="cl /nologo /c /MD /O1 /Zi /MP2 /DYNAMICBASE /GS /I&quot;%DSTROOT%\AppleInternal\include&quot; /I&quot;%SRCROOT%\AppleInternal\include&quot; /I&quot;$(ProjectDir)\..\runtime&quot; /D&quot;_WINDOWS&quot; /Dnil=0 ..\runtime\objcrt.c /Fo&quot;$(OutDir)\objcrt.obj"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="xcopy /Y &quot;$(OutDir)\objcrt.obj&quot; &quot;%DSTROOT%\AppleInternal\lib&quot;"
+			/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<Filter
+			Name="Source Files"
+			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
+			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
+			>
+			<File
+				RelativePath="..\runtime\objcrt.c"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Header Files"
+			Filter="h;hpp;hxx;hm;inl;inc;xsd"
+			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
+			>
+			<File
+				RelativePath="..\runtime\objcrt.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Resource Files"
+			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
+			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
+			>
+		</Filter>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>
