@@ -24,7 +24,7 @@ testObject7.object = testObject2;
 
 1. 检测循环引用的基本原理以及过程
 2. [检测涉及 NSObject 对象的循环引用问题](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/FBRetainCycleDetector/检测%20NSObject%20对象持有的强指针.md)
-2. 检测涉及 Associated Object 关联对象的循环引用问题
+2. [检测涉及 Associated Object 关联对象的循环引用问题](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/FBRetainCycleDetector/如何实现%20iOS%20中的%20Associated%20Object.md)
 3. 检测涉及 Block 的循环引用问题
 
 这是四篇文章中的第一篇，我们会以类 `FBRetainCycleDetector` 的 `- findRetainCycles` 方法为入口，分析其实现原理以及运行过程。
