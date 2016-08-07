@@ -152,4 +152,6 @@ id _objc_rootInit(id obj) {
 
 在 iOS 中一个对象的初始化过程很符合直觉，只是分配内存空间、然后初始化 `isa_t` 结构体，其实现也并不复杂，这篇文章也是这个系列文章中较为简单并且简短的一篇。
 
+> Follow: [Draveness · Github](https://github.com/Draveness)
+
 
