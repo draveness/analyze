@@ -14,7 +14,7 @@
 id _objc_rootAlloc(Class cls)
 └── static id callAlloc(Class cls, bool checkNil, bool allocWithZone=false)
     └── id class_createInstance(Class cls, size_t extraBytes)
-    		 └── id _class_createInstanceFromZone(Class cls, size_t extraBytes, void *zone, bool cxxConstruct, size_t *outAllocatedSize)
+    	└── id _class_createInstanceFromZone(Class cls, size_t extraBytes, void *zone, bool cxxConstruct, size_t *outAllocatedSize)
             ├── size_t instanceSize(size_t extraBytes)
             ├── void	*calloc(size_t, size_t)
             └── inline void objc_object::initInstanceIsa(Class cls, bool hasCxxDtor)
