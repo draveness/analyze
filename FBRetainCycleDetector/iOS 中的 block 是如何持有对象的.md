@@ -6,7 +6,7 @@ Block 是 Objective-C 中笔者最喜欢的特性，它为 Objective-C 这门语
 
 ![](images/block.jpg)
 
-这篇文章并不会详细介绍 block 在内存中到底是以什么形式存在的，主要会介绍 block 是如何持有并且释放对象的。文章中的代码都出自 Facebook 开源的**用于检测循环引用**的框架 [FBRetainCycleDetector]([https://github.com/facebook/FBRetainCycleDetector])，这是分析该框架文章中的最后一篇，也是笔者觉得最有意思的一部分。
+这篇文章并不会详细介绍 block 在内存中到底是以什么形式存在的，主要会介绍 block 是如何持有并且释放对象的。文章中的代码都出自 Facebook 开源的**用于检测循环引用**的框架 [FBRetainCycleDetector](https://github.com/facebook/FBRetainCycleDetector)，这是分析该框架文章中的最后一篇，也是笔者觉得最有意思的一部分。
 
 > 如果你希望了解 FBRetainCycleDetector 的原理可以阅读[如何在 iOS 中解决循环引用的问题](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/FBRetainCycleDetector/如何在%20iOS%20中解决循环引用的问题.md)以及后续文章。
 
@@ -383,7 +383,7 @@ FBRetainCycleDetector *detector = [FBRetainCycleDetector new];
 
 ## 总结
 
-其实最开始笔者对这个 `dispose_helper` 实现的机制并不是特别的肯定，只是有一个猜测，但是在询问了 `FBBlockStrongRelationDetector` 的作者之后，才确定 `dispose_helper` 确实会负责向所有捕获的变量发送 `release` 消息，如果有兴趣可以看这个 [issue]([https://github.com/facebook/FBRetainCycleDetector/issues/15])。这部分的代码其实最开始源于 mikeash 大神的 [Circle]([https://github.com/mikeash/Circle])，不过对于他是如何发现这一点的，笔者并不清楚，如果各位有相关的资料或者合理的解释，可以随时联系我。
+其实最开始笔者对这个 `dispose_helper` 实现的机制并不是特别的肯定，只是有一个猜测，但是在询问了 `FBBlockStrongRelationDetector` 的作者之后，才确定 `dispose_helper` 确实会负责向所有捕获的变量发送 `release` 消息，如果有兴趣可以看这个 [issue](https://github.com/facebook/FBRetainCycleDetector/issues/15)。这部分的代码其实最开始源于 mikeash 大神的 [Circle](https://github.com/mikeash/Circle)，不过对于他是如何发现这一点的，笔者并不清楚，如果各位有相关的资料或者合理的解释，可以随时联系我。
 
 > Follow: [Draveness · Github](https://github.com/Draveness)
 
