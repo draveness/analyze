@@ -1,10 +1,10 @@
 # iOS 中的 block 是如何持有对象的
 
-![](images/block.jpg)
-
 > Follow: [Draveness · Github](https://github.com/Draveness)
 
 Block 是 Objective-C 中笔者最喜欢的特性，它为 Objective-C 这门语言提供了强大的函数式编程能力，而最近苹果推出的很多新的 API 都已经开始原生的支持 block 语法，可见它在 Objective-C 中变得越来越重要。
+
+![](images/block.jpg)
 
 这篇文章并不会详细介绍 block 在内存中到底是以什么形式存在的，主要会介绍 block 是如何持有并且释放对象的。文章中的代码都出自 Facebook 开源的**用于检测循环引用**的框架 [FBRetainCycleDetector]([https://github.com/facebook/FBRetainCycleDetector])，这是分析该框架文章中的最后一篇，也是笔者觉得最有意思的一部分。
 
