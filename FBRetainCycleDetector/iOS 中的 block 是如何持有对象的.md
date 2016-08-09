@@ -1,5 +1,7 @@
 # iOS 中的 block 是如何持有对象的
 
+![](images/block.jpg)
+
 > Follow: [Draveness · Github](https://github.com/Draveness)
 
 Block 是 Objective-C 中笔者最喜欢的特性，它为 Objective-C 这门语言提供了强大的函数式编程能力，而最近苹果推出的很多新的 API 都已经开始原生的支持 block 语法，可见它在 Objective-C 中变得越来越重要。
