@@ -36,7 +36,7 @@ let titleLabel = UILabel().then {
 
 而协议扩展可以调用协议中声明的方法，以及 `where Self: AnyObject` 中的 `AnyObject` 的类/实例方法，这就大大提高了可操作性，便于开发者写出一些意想不到的扩展。
 
-> 如果读者对 Protocol Extension 兴趣或者不了解协议扩展，可以阅读最后的 [Reference](#refernece) 了解相关内容。
+> 如果读者对 Protocol Extension 兴趣或者不了解协议扩展，可以阅读最后的 [Reference](#reference) 了解相关内容。
 
 ## ProtocolKit
 
