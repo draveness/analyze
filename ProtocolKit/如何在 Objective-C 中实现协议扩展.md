@@ -1,5 +1,7 @@
 # 如何在 Objective-C 中实现协议扩展
 
+![protocol-recordings](images/protocol-recordings.jpeg)
+
 Swift 中的协议扩展为 iOS 开发带来了非常多的可能性，它为我们提供了一种类似多重继承的功能，帮助我们减少一切可能导致重复代码的地方。
 
 ## 关于 Protocol Extension
