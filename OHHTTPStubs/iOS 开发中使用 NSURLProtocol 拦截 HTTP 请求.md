@@ -129,6 +129,8 @@
 
 如果你只想了解如何对 HTTP 请求进行拦截，其实看到这里就可以了，不过如果你想应用文章中的内容或者希望了解如何伪造 HTTP 响应，可以看下一篇文章[如何进行 HTTP Mock]()。
 
+> Follow: [Draveness · Github](https://github.com/Draveness)
+
 ## References
  + [NSURLProtocol]([http://nshipster.com/nsurlprotocol/])
 

@@ -401,3 +401,6 @@ NSBundle* __nullable OHResourceBundle(NSString* bundleBasename, Class inBundleFo
 
 如果阅读过上一篇文章中的内容，理解这里的实现原理也不是什么太大的问题。在需要使用到 HTTP mock 进行测试时，使用 OHHTTPStubs 还是很方便的，当然现在也有很多其他的 HTTP stub 框架，不过实现基本上都是基于 `NSURLProtocol` 的。
 
+> Follow: [Draveness · Github](https://github.com/Draveness)
+
+
