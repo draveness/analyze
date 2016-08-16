@@ -2,7 +2,8 @@
 
 这篇文章会提供一种在 Cocoa 层拦截所有 HTTP 请求的方法，其实标题已经说明了拦截 HTTP 请求需要的了解的就是 `NSURLProtocol`。
 
-由于文章的内容较长，会分成两部分，这篇文章介绍 `NSURLProtocol` 拦截 HTTP 请求的原理，另一篇文章[如何进行 HTTP Mock]() 介绍这个原理在 `OHHTTPStubs` 中的应用，它是如何 Mock（伪造）某个 HTTP 请求对应的响应的。
+由于文章的内容较长，会分成两部分，这篇文章介绍 `NSURLProtocol` 拦截 HTTP 请求的原理，另一篇文章[如何进行 HTTP Mock（iOS）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/OHHTTPStubs/如何进行%20HTTP%20Mock（iOS）.md)
+ 介绍这个原理在 `OHHTTPStubs` 中的应用，它是如何 Mock（伪造）某个 HTTP 请求对应的响应的。
 
 ## NSURLProtocol
 
@@ -127,10 +128,12 @@
 
 ## 总结
 
-如果你只想了解如何对 HTTP 请求进行拦截，其实看到这里就可以了，不过如果你想应用文章中的内容或者希望了解如何伪造 HTTP 响应，可以看下一篇文章[如何进行 HTTP Mock]()。
+如果你只想了解如何对 HTTP 请求进行拦截，其实看到这里就可以了，不过如果你想应用文章中的内容或者希望了解如何伪造 HTTP 响应，可以看下一篇文章[如何进行 HTTP Mock（iOS）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/OHHTTPStubs/如何进行%20HTTP%20Mock（iOS）.md)
+。
 
 > Follow: [Draveness · Github](https://github.com/Draveness)
 
 ## References
  + [NSURLProtocol]([http://nshipster.com/nsurlprotocol/])
+[如何进行 HTTP Mock（iOS）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/OHHTTPStubs/如何进行%20HTTP%20Mock（iOS）.md)
 
