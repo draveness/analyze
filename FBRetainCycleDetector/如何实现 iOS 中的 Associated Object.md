@@ -8,7 +8,7 @@
 
 FBRetainCycleDetector 在对关联对象进行追踪时，修改了底层处理关联对象的两个 C 函数，`objc_setAssociatedObject` 和 `objc_removeAssociatedObjects`，在这里不会分析它是如何修改底层 C 语言函数实现的，如果想要了解相关的内容，可以阅读下面的文章。
 
-> 关于如何动态修改 C 语言函数实现可以看[动态修改 C 语言函数的实现]([https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/fishhook/动态修改%20C%20语言函数的实现.md])这篇文章，使用的第三方框架是 [fishhook]([https://github.com/facebook/fishhook])。
+> 关于如何动态修改 C 语言函数实现可以看[动态修改 C 语言函数的实现]([https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/fishhook/动态修改%20C%20语言函数的实现.md])这篇文章，使用的第三方框架是 [fishhook]([https://github.com/facebook/fishhook])。
 
 ## FBAssociationManager
 
@@ -212,7 +212,7 @@ NSArray *associations(id object) {
 
 ## 总结
 
-FBRetainCycleDetector 为了追踪某一 `NSObject` 对关联对象的引用，重新实现了关联对象模块，不过其实现与 ObjC 运行时中对关联对象的实现其实所差无几，如果对运行时中的关联对象实现原理有兴趣的话，可以看[关联对象 AssociatedObject 完全解析](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/objc/关联对象%20AssociatedObject%20完全解析.md)这篇文章，它介绍了底层运行时中的关联对象的实现。
+FBRetainCycleDetector 为了追踪某一 `NSObject` 对关联对象的引用，重新实现了关联对象模块，不过其实现与 ObjC 运行时中对关联对象的实现其实所差无几，如果对运行时中的关联对象实现原理有兴趣的话，可以看[关联对象 AssociatedObject 完全解析](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/objc/关联对象%20AssociatedObject%20完全解析.md)这篇文章，它介绍了底层运行时中的关联对象的实现。
 
 这是 FBRetainCycleDetector 系列文章中的第三篇，第四篇也是最后一篇文章会介绍 FBRetainCycleDetector 是如何获取 block 持有的强引用的，这也是我觉得整个框架中实现最精彩的一部分。
 

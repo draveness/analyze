@@ -457,7 +457,7 @@ inline void objc_object::setHasAssociatedObjects() {
 
 ![objc-ao-isa-struct](../images/objc-ao-isa-struct.png)
 
-> 如果想要了解关于 isa 的知识，可以阅读[从 NSObject 的初始化了解 isa](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/objc/从%20NSObject%20的初始化了解%20isa.md)
+> 如果想要了解关于 isa 的知识，可以阅读[从 NSObject 的初始化了解 isa](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/objc/从%20NSObject%20的初始化了解%20isa.md)
 
 ### objc_getAssociatedObject
 

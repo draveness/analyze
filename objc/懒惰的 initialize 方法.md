@@ -6,7 +6,7 @@
 
 这篇文章可能是对 Objective-C 源代码解析系列文章中最短的一篇了，在 Objective-C 中，我们总是会同时想到 `load`、`initialize` 这两个类方法。而这两个方法也经常在一起比较：
 
-在上一篇介绍 `load` 方法的[文章](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/objc/你真的了解%20load%20方法么？.md)中，已经对 `load` 方法的调用时机、调用顺序进行了详细地分析，所以对于 `load` 方法，这里就不在赘述了。
+在上一篇介绍 `load` 方法的[文章](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/objc/你真的了解%20load%20方法么？.md)中，已经对 `load` 方法的调用时机、调用顺序进行了详细地分析，所以对于 `load` 方法，这里就不在赘述了。
 
 这篇文章会~~假设你知道：~~假设你是 iOS 开发者。
 
@@ -80,7 +80,7 @@ int main(int argc, const char * argv[]) {
 6 start
 ```
 
-直接来看调用栈中的 `lookUpImpOrForward` 方法，`lookUpImpOrForward` 方法**只会在向对象发送消息，并且在类的缓存中没有找到消息的选择子时**才会调用，具体可以看这篇文章，[从源代码看 ObjC 中消息的发送](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/objc/从源代码看%20ObjC%20中消息的发送.md)。
+直接来看调用栈中的 `lookUpImpOrForward` 方法，`lookUpImpOrForward` 方法**只会在向对象发送消息，并且在类的缓存中没有找到消息的选择子时**才会调用，具体可以看这篇文章，[从源代码看 ObjC 中消息的发送](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/objc/从源代码看%20ObjC%20中消息的发送.md)。
 
 在这里，我们知道 `lookUpImpOrForward` 方法是 `objc_msgSend` 触发的就够了。
 

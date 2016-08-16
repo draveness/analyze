@@ -13,7 +13,7 @@
     
     > 如果对于上述的知识不够了解，可以看一下这篇文章 [Objective-C Runtime](http://tech.glowing.com/cn/objective-c-runtime/)，但是其中关于 `objc_class` 的结构体的代码已经过时了，不过不影响阅读以及理解。
 
-5. 方法在内存中存储的位置，[深入解析 ObjC 中方法的结构](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/objc/深入解析%20ObjC%20中方法的结构.md)（可选）
+5. 方法在内存中存储的位置，[深入解析 ObjC 中方法的结构](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/objc/深入解析%20ObjC%20中方法的结构.md)（可选）
 
     > 文章中不会刻意区别方法和函数、消息传递和方法调用之间的区别。
 
@@ -636,7 +636,7 @@ Objective-C 中实现查找的路径还是比较符合直觉的：
 
 ## 参考资料
 
-+ [深入解析 ObjC 中方法的结构](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/objc/深入解析%20ObjC%20中方法的结构.md)
++ [深入解析 ObjC 中方法的结构](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/objc/深入解析%20ObjC%20中方法的结构.md)
 + [Objective-C Runtime](http://tech.glowing.com/cn/objective-c-runtime/)
 + [Let's Build objc_msgSend](https://www.mikeash.com/pyblog/friday-qa-2012-11-16-lets-build-objc_msgsend.html)
 

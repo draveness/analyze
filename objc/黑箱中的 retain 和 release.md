@@ -2,8 +2,8 @@
 
 > 由于 Objective-C 中的内存管理是一个比较大的话题，所以会分为两篇文章来对内存管理中的一些机制进行剖析，一部分分析自动释放池以及 `autorelease` 方法，另一部分分析 `retain`、`release` 方法的实现以及自动引用计数。
 
-+ [自动释放池的前世今生](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/objc/自动释放池的前世今生.md)
-+ [黑箱中的 retain 和 release](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/objc/黑箱中的%20retain%20和%20release.md)
++ [自动释放池的前世今生](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/objc/自动释放池的前世今生.md)
++ [黑箱中的 retain 和 release](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/objc/黑箱中的%20retain%20和%20release.md)
 
 ## 写在前面
 
@@ -359,7 +359,7 @@ inline uintptr_t objc_object::rootRetainCount() {
 + Objective-C 使用 `isa` 中的 `extra_rc` 和 `SideTable` 来存储对象的引用计数
 + 在对象的引用计数归零时，会调用 `dealloc` 方法回收对象
 
-有关于自动释放池实现的介绍，可以看[自动释放池的前世今生](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/objc/自动释放池的前世今生.md)。
+有关于自动释放池实现的介绍，可以看[自动释放池的前世今生](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/objc/自动释放池的前世今生.md)。
 
 > Follow: [Draveness · Github](https://github.com/Draveness)
 

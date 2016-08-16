@@ -326,14 +326,14 @@ for (unsigned methodIndex = 0; methodIndex < extendedProtocol.classMethodCount; 
 
 ## 总结
 
-ProtocolKit 通过宏和 runtime 实现了类似协议扩展的功能，其实现代码总共也只有 200 多行，还是非常简洁的；在另一个叫做 [libextobjc](https://github.com/jspahrsummers/libextobjc) 的框架中也实现了类似的功能，有兴趣的读者可以查看 [EXTConcreteProtocol.h · libextobjc]([https://github.com/jspahrsummers/libextobjc/blob/master/extobjc/EXTConcreteProtocol.h]) 这个文件。
+ProtocolKit 通过宏和 runtime 实现了类似协议扩展的功能，其实现代码总共也只有 200 多行，还是非常简洁的；在另一个叫做 [libextobjc](https://github.com/jspahrsummers/libextobjc) 的框架中也实现了类似的功能，有兴趣的读者可以查看 [EXTConcreteProtocol.h · libextobjc]([https://github.com/jspahrsummers/libextobjc/blob/master/contents/extobjc/EXTConcreteProtocol.h]) 这个文件。
 
 ## Reference
 
 + [Protocols · Apple Doc](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift\_Programming\_Language/Extensions.html#//apple\_ref/doc/uid/TP40014097-CH24-ID151)
-+ [EXTConcreteProtocol.h · libextobjc](https://github.com/jspahrsummers/libextobjc/blob/master/extobjc/EXTConcreteProtocol.h)
++ [EXTConcreteProtocol.h · libextobjc](https://github.com/jspahrsummers/libextobjc/blob/master/contents/extobjc/EXTConcreteProtocol.h)
 + [\_\_attribute__ · NSHipster](http://nshipster.com/__attribute__/)
-+ [你真的了解 load 方法么？](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/objc/你真的了解%20load%20方法么？.md)
-+ [懒惰的 initialize 方法](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/objc/懒惰的%20initialize%20方法.md)
++ [你真的了解 load 方法么？](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/objc/你真的了解%20load%20方法么？.md)
++ [懒惰的 initialize 方法](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/objc/懒惰的%20initialize%20方法.md)
 
 

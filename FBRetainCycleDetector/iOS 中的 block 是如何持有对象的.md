@@ -8,7 +8,7 @@ Block 是 Objective-C 中笔者最喜欢的特性，它为 Objective-C 这门语
 
 这篇文章并不会详细介绍 block 在内存中到底是以什么形式存在的，主要会介绍 block 是如何持有并且释放对象的。文章中的代码都出自 Facebook 开源的**用于检测循环引用**的框架 [FBRetainCycleDetector](https://github.com/facebook/FBRetainCycleDetector)，这是分析该框架文章中的最后一篇，也是笔者觉得最有意思的一部分。
 
-> 如果你希望了解 FBRetainCycleDetector 的原理可以阅读[如何在 iOS 中解决循环引用的问题](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/FBRetainCycleDetector/如何在%20iOS%20中解决循环引用的问题.md)以及后续文章。
+> 如果你希望了解 FBRetainCycleDetector 的原理可以阅读[如何在 iOS 中解决循环引用的问题](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/FBRetainCycleDetector/如何在%20iOS%20中解决循环引用的问题.md)以及后续文章。
 
 ## 为什么会谈到 block
 

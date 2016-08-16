@@ -2,7 +2,7 @@
 
 > 因为 ObjC 的 runtime 只能在 Mac OS 下才能编译，所以文章中的代码都是在 Mac OS，也就是 `x86_64` 架构下运行的，对于在 arm64 中运行的代码会特别说明。
 
-在上一篇分析 `isa` 的文章[从 NSObject 的初始化了解 isa](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/objc/从%20NSObject%20的初始化了解%20isa.md) 中曾经说到过实例方法被调用时，会通过其持有 `isa` 指针寻找对应的类，然后在其中的 `class_data_bits_t` 中查找对应的方法，在这一篇文章中会介绍方法在 ObjC 中是如何存储方法的。
+在上一篇分析 `isa` 的文章[从 NSObject 的初始化了解 isa](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/objc/从%20NSObject%20的初始化了解%20isa.md) 中曾经说到过实例方法被调用时，会通过其持有 `isa` 指针寻找对应的类，然后在其中的 `class_data_bits_t` 中查找对应的方法，在这一篇文章中会介绍方法在 ObjC 中是如何存储方法的。
 
 这篇文章的首先会根据 ObjC 源代码来分析方法在内存中的存储结构，然后在 lldb 调试器中一步一步验证分析的正确性。
 

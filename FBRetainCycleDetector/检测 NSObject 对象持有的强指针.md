@@ -2,7 +2,7 @@
 
 在上一篇文章中介绍了 `FBRetainCycleDetector` 的基本工作原理，这一篇文章中我们开始分析它是如何从每一个对象中获得它持有的强指针的。
 
-> 如果没有看第一篇文章这里还是最好看一下，了解一下 `FBRetainCycleDetector` 的工作原理，[如何在 iOS 中解决循环引用的问题](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/FBRetainCycleDetector/如何在%20iOS%20中解决循环引用的问题.md)。
+> 如果没有看第一篇文章这里还是最好看一下，了解一下 `FBRetainCycleDetector` 的工作原理，[如何在 iOS 中解决循环引用的问题](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/FBRetainCycleDetector/如何在%20iOS%20中解决循环引用的问题.md)。
 
 `FBRetainCycleDetector` 获取对象的强指针是通过 `FBObjectiveCObject` 类的 `- allRetainedObjects` 方法，这一方法是通过其父类 `FBObjectiveCGraphElement` 继承过来的，只是内部有着不同的实现。
 

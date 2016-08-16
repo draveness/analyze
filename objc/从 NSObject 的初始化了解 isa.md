@@ -40,7 +40,7 @@ struct objc_class : objc_object {
 
 当**实例方法**被调用时，它要通过自己持有的 `isa` 来查找对应的类，然后在这里的 `class_data_bits_t` 结构体中查找对应方法的实现。同时，每一个 `objc_class` 也有一个**指向自己的父类的指针** `super_class` 用来查找继承的方法。
 
-> 关于如何在 `class_data_bits_t` 中查找对应方法会在之后的文章中讲到。这里只需要知道，它会在这个结构体中查找到对应方法的实现就可以了。[深入解析 ObjC 中方法的结构](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/objc/深入解析%20ObjC%20中方法的结构.md)
+> 关于如何在 `class_data_bits_t` 中查找对应方法会在之后的文章中讲到。这里只需要知道，它会在这个结构体中查找到对应方法的实现就可以了。[深入解析 ObjC 中方法的结构](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/objc/深入解析%20ObjC%20中方法的结构.md)
 
 <p align='center'>
 ![objc-isa-class-pointer](../images/objc-isa-class-pointer.png)

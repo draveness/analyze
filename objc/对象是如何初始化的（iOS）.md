@@ -132,7 +132,7 @@ union isa_t {
 };
 ```
 
-> 在这里并不想过多介绍关于 `isa_t` 结构体的内容，你可以看[从 NSObject 的初始化了解 isa](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/objc/从%20NSObject%20的初始化了解%20isa.md) 来了解你想知道的关于 `isa_t` 的全部内容。
+> 在这里并不想过多介绍关于 `isa_t` 结构体的内容，你可以看[从 NSObject 的初始化了解 isa](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/objc/从%20NSObject%20的初始化了解%20isa.md) 来了解你想知道的关于 `isa_t` 的全部内容。
 
 ## init 方法
 

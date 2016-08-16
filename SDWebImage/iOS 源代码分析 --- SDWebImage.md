@@ -48,7 +48,7 @@
           placeholderImage:(UIImage *)placeholder;
 ```
 
-这一方法为入口研究一下 `SDWebImage` 是怎样工作的. 我们打开上面这段方法的实现代码 [UIImageView+WebCache.m](https://github.com/rs/SDWebImage/blob/master/SDWebImage/UIImageView%2BWebCache.m) 
+这一方法为入口研究一下 `SDWebImage` 是怎样工作的. 我们打开上面这段方法的实现代码 [UIImageView+WebCache.m](https://github.com/rs/SDWebImage/blob/master/contents/SDWebImage/UIImageView%2BWebCache.m) 
 
 当然你也可以 `git clone git@github.com:rs/SDWebImage.git` 到本地来查看.
 
@@ -192,7 +192,7 @@ dispatch_main_sync_safe(^{
 
 ###SDWebImageManager
 
-在 [SDWebImageManager.h](https://github.com/rs/SDWebImage/blob/master/SDWebImage/SDWebImageManager.h) 中你可以看到关于 `SDWebImageManager` 的描述:
+在 [SDWebImageManager.h](https://github.com/rs/SDWebImage/blob/master/contents/SDWebImage/SDWebImageManager.h) 中你可以看到关于 `SDWebImageManager` 的描述:
 
 > The SDWebImageManager is the class behind the UIImageView+WebCache category and likes. It ties the asynchronous downloader (SDWebImageDownloader) with the image cache store (SDImageCache). You can use this class directly to benefit from web image downloading with caching in another context than a UIView.
 
@@ -313,7 +313,7 @@ operation.cancelBlock = ^{
 
 ###SDWebImageCache
 
-[SDWebImageCache.h](https://github.com/rs/SDWebImage/blob/master/SDWebImage/SDImageCache.h) 这个类在源代码中有这样的注释:
+[SDWebImageCache.h](https://github.com/rs/SDWebImage/blob/master/contents/SDWebImage/SDImageCache.h) 这个类在源代码中有这样的注释:
 
 > SDImageCache maintains a memory cache and an optional disk cache.
 
@@ -365,7 +365,7 @@ if (diskImage) {
 
 ###SDWebImageDownloader
 
-按照之前的惯例, 我们先来看一下 [SDWebImageDownloader.h](https://github.com/rs/SDWebImage/blob/master/SDWebImage/SDWebImageDownloader.h) 中对这个类的描述.
+按照之前的惯例, 我们先来看一下 [SDWebImageDownloader.h](https://github.com/rs/SDWebImage/blob/master/contents/SDWebImage/SDWebImageDownloader.h) 中对这个类的描述.
 
 > Asynchronous downloader dedicated and optimized for image loading.
 
