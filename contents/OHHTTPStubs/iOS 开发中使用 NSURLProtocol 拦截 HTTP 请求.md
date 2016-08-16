@@ -1,5 +1,7 @@
 # iOS 开发中使用 NSURLProtocol 拦截 HTTP 请求
 
+![](images/intercept.png)
+
 这篇文章会提供一种在 Cocoa 层拦截所有 HTTP 请求的方法，其实标题已经说明了拦截 HTTP 请求需要的了解的就是 `NSURLProtocol`。
 
 由于文章的内容较长，会分成两部分，这篇文章介绍 `NSURLProtocol` 拦截 HTTP 请求的原理，另一篇文章[如何进行 HTTP Mock（iOS）](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/OHHTTPStubs/如何进行%20HTTP%20Mock（iOS）.md)
