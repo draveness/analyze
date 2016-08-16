@@ -1,3 +1,5 @@
+![](images/http-mock-test.png)
+
 # 如何进行 HTTP Mock（iOS）
 
 这篇文章会对 [OHHTTPStubs]([https://github.com/AliSoftware/OHHTTPStubs]) 源代码的分析，其实现原理是建立在 `NSURLProtocol` 的基础上的，对这部分内容不了解的读者，可以阅读这篇文章 [iOS 开发中使用 NSURLProtocol 拦截 HTTP 请求](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/OHHTTPStubs/iOS%20开发中使用%20NSURLProtocol%20拦截%20HTTP%20请求.md)了解相关知识，本文中不会介绍拦截 HTTP 请求的原理。

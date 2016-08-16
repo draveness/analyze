@@ -1,6 +1,6 @@
-# iOS 开发中使用 NSURLProtocol 拦截 HTTP 请求
-
 ![](images/intercept.png)
+
+# iOS 开发中使用 NSURLProtocol 拦截 HTTP 请求
 
 这篇文章会提供一种在 Cocoa 层拦截所有 HTTP 请求的方法，其实标题已经说明了拦截 HTTP 请求需要的了解的就是 `NSURLProtocol`。
 
