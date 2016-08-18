@@ -1,1 +1,0 @@
-../../../PINRemoteImage/Pod/Classes/PINRemoteImageCategoryManager.h
