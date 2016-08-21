@@ -82,12 +82,12 @@
 // this method is pretty gross and just for demonstration  :]
 - (void)createAndDisplayNodes
 {
-//  [_imageNode.view removeFromSuperview];
+  [_imageNode.view removeFromSuperview];
   [_postNode.view removeFromSuperview];
 
   // ASImageNode gets placeholders by default
-//  _imageNode = [[SlowpokeImageNode alloc] init];
-//  _imageNode.image = [UIImage imageNamed:@"logo"];
+  _imageNode = [[SlowpokeImageNode alloc] init];
+  _imageNode.image = [UIImage imageNamed:@"logo"];
 
   _postNode = [[PostNode alloc] init];
 
@@ -95,7 +95,7 @@
   // this placeholder will cover all subnodes while they are displaying, just a like a stage curtain!
   _postNode.placeholderEnabled = NO;
 
-//  [self.view addSubnode:_imageNode];
+  [self.view addSubnode:_imageNode];
   [self.view addSubnode:_postNode];
 }
 
