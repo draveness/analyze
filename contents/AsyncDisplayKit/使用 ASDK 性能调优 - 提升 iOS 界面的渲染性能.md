@@ -1,5 +1,3 @@
-![](images/phone-in-hand.jpg)
-
 # 使用 ASDK 性能调优 - 提升 iOS 界面的渲染性能
 
 > 这一系列的文章会从几个方面对 [ASDK](http://asyncdisplaykit.org) 在性能调优方面策略的实现进行分析，帮助读者理解 ASDK 如何做到使复杂的 UI 界面达到 60 FPS 的刷新频率的；本篇文章会从视图的渲染层面讲解 ASDK 对于渲染过程的优化并对 ASDK 进行概述。
