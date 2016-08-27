@@ -1,1 +1,0 @@
-int state = 0;
