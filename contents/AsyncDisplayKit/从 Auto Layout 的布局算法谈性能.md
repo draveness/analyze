@@ -43,7 +43,9 @@ B.width  = A.width
 B.height = A.height
 ```
 
-虽然上面的约束很好的表示了各个视图之间的关系，但是 Auto Layout 实际上并没有改变原有的 Hard-Coded 形式的布局方式，只是将原有没有太多意义的 `(x, y)` 值，变成了描述性的代码。我们仍然需要知道布局信息所需要的四部分 `x`、`y`、`width` 以及 `height`。换句话说，我们要求解上述的**八元一次**方程组，将每个视图所需要的信息解出来；Cocoa 会在运行时求解上述的方程组，最终使用 `frame` 来绘制视图。
+虽然上面的约束很好的表示了各个视图之间的关系，但是 Auto Layout 实际上并没有改变原有的 Hard-Coded 形式的布局方式，只是将原有没有太多意义的 `(x, y)` 值，变成了描述性的代码。
+
+我们仍然需要知道布局信息所需要的四部分 `x`、`y`、`width` 以及 `height`。换句话说，我们要求解上述的**八元一次**方程组，将每个视图所需要的信息解出来；Cocoa 会在运行时求解上述的方程组，最终使用 `frame` 来绘制视图。
 
 ![layout-phase](images/layout-phase.png)
 
@@ -51,17 +53,17 @@ B.height = A.height
 
 在上世纪 90 年代，一个名叫 [Cassowary](https://en.wikipedia.org/wiki/Cassowary_(software)) 的布局算法解决了用户界面的布局问题，它通过将布局问题抽象成线性等式和不等式约束来进行求解。
 
-Auto Layout 其实就是对 Cassowary 算法的一种实现，但是这里并不会对这里进行展开介绍，有兴趣的读者可以在文章最后的 Reference 中了解一下 Cassowary 算法相关的文章。
+Auto Layout 其实就是对 Cassowary 算法的一种实现，但是这里并不会对它展开介绍，有兴趣的读者可以在文章最后的 Reference 中了解一下 Cassowary 算法相关的文章。
 
 > Auto Layout 的原理就是对**线性方程组或者不等式**的求解。
 
 ## Auto Layout 的性能
 
-在我们使用 Auto Layout 进行布局时，可以指定一系列的约束，比如视图的高度、宽度是多少等等。而每一个约束其实都是一个简单的线性等式或不等式，整个界面上的所有约束在一起就**明确地（没有冲突）**定义了整个系统的布局。
+在使用 Auto Layout 进行布局时，可以指定一系列的约束，比如视图的高度、宽度等等。而每一个约束其实都是一个简单的线性等式或不等式，整个界面上的所有约束在一起就**明确地（没有冲突）**定义了整个系统的布局。
 
-> 在涉及冲突发生时，Auto Layout 会尝试 break 一些优先级低的约束，能够尽量满足最多并且优先级最高的约束。
+> 在涉及冲突发生时，Auto Layout 会尝试 break 一些优先级低的约束，尽量满足最多并且优先级最高的约束。
 
-因为布局系统在最后仍然需要通过 `frame` 来进行，所以 Auto Layout 虽然为开发者在描述布局时带来了一些好处，不过它相当于在原有的布局系统中加了从约束计算 `frame` 的过程，而在这里，我们需要了解 Auto Layout 的性能到底是怎么样的。
+因为布局系统在最后仍然需要通过 `frame` 来进行，所以 Auto Layout 虽然为开发者在描述布局时带来了一些好处，不过它相比原有的布局系统加入了从约束计算 `frame` 的过程，而在这里，我们需要了解 Auto Layout 的布局性能如何。
 
 ![performance-loss](images/performance-loss.jpeg)
 
@@ -69,7 +71,9 @@ Auto Layout 其实就是对 Cassowary 算法的一种实现，但是这里并不
 
 在这里我们会对 Auto Layout 的性能进行测试，为了更明显的展示  Auto Layout 的性能，我们通过 `frame` 的性能建立一条基准线**以消除对象的创建和销毁、视图的渲染、视图层级的改变带来的影响**。
 
-代码分别使用 Auto Layout 和 `frame` 对 N 个视图进行布局，测算其执行时间。
+> 你可以在 [这里](https://github.com/Draveness/iOS-Source-Code-Analyze/tree/master/contents/AsyncDisplayKit/Layout) 找到这次对 Layout 性能测量使用的代码。
+
+代码分别使用 Auto Layout 和 `frame` 对 N 个视图进行布局，测算其运行时间。
 
 使用 AutoLayout 时，每个视图会随机选择两个视图对它的 `top` 和 `left` 进行约束，随机生成一个数字作为 `offset`；同时，还会用几个优先级高的约束保证视图的布局不会超出整个 `keyWindow`。
 
@@ -81,19 +85,17 @@ Auto Layout 其实就是对 Cassowary 算法的一种实现，但是这里并不
 
 从图中可以看到，使用 Auto Layout 进行布局的时间会是只使用 `frame` 的 **16 倍**左右，虽然这里的测试结果可能**受外界条件影响差异**比较大，不过 Auto Layout 的性能相比 `frame` 确实差很多，如果去掉设置 `frame` 的过程消耗的时间，Auto Layout 过程进行的计算量也是非常巨大的。
 
-> 你可以在 [这里](https://github.com/Draveness/iOS-Source-Code-Analyze/tree/master/contents/AsyncDisplayKit/Layout) 找到这次对 Layout 性能测量使用的代码。
-
 在上一篇文章中，我们曾经提到，想要让 iOS 应用的视图保持 60 FPS 的刷新频率，我们必须在 **1/60 = 16.67 ms** 之内完成包括布局、绘制以及渲染等操作。
 
-也就是说如果当前界面上的视图大于 100 的话，使用 Auto Layout 是很难达到绝对流畅的要求的；而在使用 `frame` 时，同一个界面下哪怕有 500 个视图，也是可以在 16.67 ms 之内完成布局的。不过在一般情况下，在 iOS 的整个 UIWindow 中也不会一次性出现如此多的视图。
+也就是说如果当前界面上的视图大于 100 的话，使用 Auto Layout 是很难达到绝对流畅的要求的；而在使用 `frame` 时，同一个界面下哪怕有 500 个视图，也是可以在 16.67 ms 之内完成布局的。不过在一般情况下，在 iOS 的整个 `UIWindow` 中也不会一次性出现如此多的视图。
 
 我们更关心的是，在日常开发中难免会使用 Auto Layout 进行布局，既然有 16.67 ms 这个限制，那么在界面上出现了多少个视图时，我才需要考虑其它的布局方式呢？在这里，我们将需要布局的视图数量减少一个量级，重新绘制一个图表：
 
 ![performance-layout-10-90](images/performance-layout-10-90.jpeg)
 
-从图中可以看出，当对 **30 个左右视图**使用 Auto Layout 进行布局时，所需要的时间就会在 16.67 ms 左右，当然这里不排除一些其它因素的影响；到目前为止，会得出一个大致的结论，使用 Auto Layout 对复杂的 UI 界面进行布局时（大于 30 个视图）就会对性能有严重的影响。
+从图中可以看出，当对 **30 个左右视图**使用 Auto Layout 进行布局时，所需要的时间就会在 16.67 ms 左右，当然这里不排除一些其它因素的影响；到目前为止，会得出一个大致的结论，使用 Auto Layout 对复杂的 UI 界面进行布局时（大于 30 个视图）就会对性能有严重的影响（同时与设备有关，文章中不会考虑设备性能的差异性）。
 
-上述对 Auto Layout 的使用还是比较简单的，而在日常使用中，使用嵌套的视图层级有非常正常。
+上述对 Auto Layout 的使用还是比较简单的，而在日常使用中，使用嵌套的视图层级又非常正常。
 
 > 在笔者对嵌套视图层级中使用 Auto Layout 进行布局时，当视图的数量超过了 500 时，模拟器直接就 crash 了，所以这里没有超过 500 个视图的数据。
 
@@ -103,7 +105,7 @@ Auto Layout 其实就是对 Cassowary 算法的一种实现，但是这里并不
 
 在视图数量大于 200 之后，随着视图数量的增加，使用 Auto Layout 对嵌套视图进行布局的时间相比非嵌套的布局成倍增长。
 
-虽然说 Auto Layout 为开发者在多尺寸布局上提供了遍历，而且支持跨越视图层级的约束，但是由于其实现原理导致其时间复杂度为**多项式时间**，其性能损耗是仅使用 `frame` 的十几倍，所以在处理庞大的 UI 界面时表现差强人意。
+虽然说 Auto Layout 为开发者在多尺寸布局上提供了遍历，而且**支持跨越视图层级**的约束，但是由于其实现原理导致其时间复杂度为**多项式时间**，其性能损耗是仅使用 `frame` 的十几倍，所以在处理庞大的 UI 界面时表现差强人意。
 
 > 在三年以前，有一篇关于 Auto Layout 性能分析的文章，可以点击这里了解这篇文章的内容 [Auto Layout Performance on iOS](http://floriankugler.com/2013/04/22/auto-layout-performance-on-ios/)。
 
@@ -128,13 +130,13 @@ Auto Layout 不止在复杂 UI 界面布局的表现不佳，它还会强制视�
 
 方法 `- calculateSizeThatFits:` 提供了手动布局的方式，通过在该方法内对 `frame` 进行计算，返回一个当前视图的 `CGSize`。
 
-而 `- layoutSpecThatFits:` 与 `layoutSpecBlock` 其实没什么不同，只是前者通过覆写方法返回 `ASLayoutSpec`；后者通过 block 的形式提供一种不需要子类化就可以完成布局的方法，这两者可以看做是完全等价的。
+而 `- layoutSpecThatFits:` 与 `layoutSpecBlock` 其实没什么不同，只是前者通过覆写方法返回 `ASLayoutSpec`；后者通过 block 的形式提供一种不需要子类化就可以完成布局的方法，两者可以看做是完全等价的。
 
-`- calculateLayoutThatFits:` 方法有一些不同，它把上面的两种布局方式：手动布局和 Spec 布局封装成了一个接口，无论是 `CGSize` 还是 `ASLayoutSpec` 最后都会以 `ASLayout` 的形式返回给方法调用者。
+`- calculateLayoutThatFits:` 方法有一些不同，它把上面的两种布局方式：手动布局和 Spec 布局封装成了一个接口，这样，无论是 `CGSize` 还是 `ASLayoutSpec` 最后都会以 `ASLayout` 的形式返回给方法调用者。
 
 ### 手动布局
 
-这里简单介绍一下手动布局使用的方法 `-[ASDisplayNode calculatedSizeThatFits:]` 方法，这个方法与 `UIView` 中的 `-[UIView sizeThatFits:]` 非常相似，其区别只是在 ASDK 中，所有的计算出的大小都会通过缓存来提升性能。
+这里简单介绍一下手动布局使用的 `-[ASDisplayNode calculatedSizeThatFits:]` 方法，这个方法与 `UIView` 中的 `-[UIView sizeThatFits:]` 非常相似，其区别只是在 ASDK 中，所有的计算出的大小都会通过缓存来提升性能。
 
 ```objectivec
 - (CGSize)calculateSizeThatFits:(CGSize)constrainedSize {
@@ -146,7 +148,7 @@ Auto Layout 不止在复杂 UI 界面布局的表现不佳，它还会强制视�
 
 ### 使用 ASLayoutSpec 布局
 
-在 ASDK 中，更加常用的是使用 `ASLayoutSpec` 布局，在上面提到的 `ASLayout` 是一个保存布局信息的媒介，而真正计算视图布局的代码都在 `ASLayoutSpec` 中；所有 ASDK 中的布局（手动 / Spec）都是由 `-[ASLayoutable measureWithSizeRange:]` 方法触发的，在这里我们以 `ASDisplayNode` 的调用栈为例：
+在 ASDK 中，更加常用的是使用 `ASLayoutSpec` 布局，在上面提到的 `ASLayout` 是一个保存布局信息的媒介，而真正计算视图布局的代码都在 `ASLayoutSpec` 中；所有 ASDK 中的布局（手动 / Spec）都是由 `-[ASLayoutable measureWithSizeRange:]` 方法触发的，在这里我们以 `ASDisplayNode` 的调用栈为例看一下方法的执行过程：
 
 ```objectivec
 -[ASDisplayNode measureWithSizeRange:]
@@ -175,7 +177,7 @@ ASDK 的文档中推荐在子类中覆写 `- layoutSpecThatFits:` 方法，返�
 
 这里只是执行了 `ASStackLayoutSpec` 对应的 `- measureWithSizeRange:` 方法，对其中的视图进行布局。在 `- measureWithSizeRange:` 中调用了一些 C++ 方法 `ASStackUnpositionedLayout`、`ASStackPositionedLayout` 以及 `ASStackBaselinePositionedLayout` 的 `compute` 方法，这些方法完成了对 `ASStackLayoutSpec` 中视图的布局。
 
-相比于 Auto Layout，ASDK 实现了一种完全不同的布局方式；比较类似与前端开发中的 `Flexbox` 模型，而 ASDK 其实就实现 `Flexbox` 的一个子集。
+相比于 Auto Layout，ASDK 实现了一种完全不同的布局方式；比较类似与前端开发中的 `Flexbox` 模型，而 ASDK 其实就实现了 `Flexbox` 的一个子集。
 
 在 ASDK 1.0 时代，很多开发者都表示希望 ASDK 中加入 ComponentKit 的布局引擎；而现在，ASDK 布局引擎的大部分代码都是从 [ComponentKit](http://componentkit.org) 中移植过来的（ComponentKit 是另一个 Facebook 团队开发的用于布局的框架）。
 
@@ -296,7 +298,7 @@ ASDK 的文档中推荐在子类中覆写 `- layoutSpecThatFits:` 方法，返�
 
 ## 总结
 
-其实 ASDK 的布局引擎大部分都是对 ComponentKit 的封装，不过由于摆脱了 Auto Layout 这一套低效但是通用的布局方式，ASDK 的布局计算不仅在后台并发线程中进行、而且通过引入 `Flexbox` 的概念提升了布局的性能，但是 ASDK 的使用相对比较复杂，如果只想对布局性能进行优化，更推荐单独使用 ComponentKit 框架进行。
+其实 ASDK 的布局引擎大部分都是对 ComponentKit 的封装，不过由于摆脱了 Auto Layout 这一套低效但是通用的布局方式，ASDK 的布局计算不仅在后台并发线程中进行、而且通过引入 `Flexbox` 提升了布局的性能，但是 ASDK 的使用相对比较复杂，如果只想对布局性能进行优化，更推荐单独使用 ComponentKit 框架。
 
 ## References
 
