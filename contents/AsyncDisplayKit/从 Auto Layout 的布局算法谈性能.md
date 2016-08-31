@@ -79,7 +79,9 @@ Auto Layout 其实就是对 Cassowary 算法的一种实现，但是这里并不
 
 ![performance-chart-100-1000](images/performance-chart-100-1000.jpeg)
 
-从图中可以看到，使用 Auto Layout 进行布局的时间会是只使用 `frame` 的 **16 倍**左右，如果去掉设置 `frame` 的过程消耗的时间，Auto Layout 过程进行的计算量也是非常巨大的。
+从图中可以看到，使用 Auto Layout 进行布局的时间会是只使用 `frame` 的 **16 倍**左右，虽然这里的测试结果可能**受外界条件影响差异**比较大，不过 Auto Layout 的性能相比只使用 `frame` 确实差很多，如果去掉设置 `frame` 的过程消耗的时间，Auto Layout 过程进行的计算量也是非常巨大的。
+
+> 你可以在 [这里](https://github.com/Draveness/iOS-Source-Code-Analyze/tree/master/contents/AsyncDisplayKit/Layout) 找到这次对 Layout 性能测量使用的代码。
 
 在上一篇文章中，我们曾经提到，想要让 iOS 应用的视图保持 60 FPS 的刷新频率，我们必须在 **1/60 = 16.67 ms** 之内完成包括布局、绘制以及渲染等操作。
 
