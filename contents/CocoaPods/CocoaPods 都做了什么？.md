@@ -2,7 +2,7 @@
 
 稍有 iOS 开发经验的人应该都是用过 CocoaPods，而对于 CI、CD 有了解的同学也都知道 Fastlane。而这两个在 iOS 开发中非常便捷的第三方库都是使用 Ruby 来编写的，这是为什么？
 
-![](./images/coocapods-image.jpg)
+![](images/cocoapods-image.jpg)
 
 先抛开这个话题不谈，我们来看一下 CocoaPods 和 Fastlane 是如何使用的，首先是 CocoaPods，在每一个工程使用 CocoaPods 的工程中都有一个 Podfile：
 
@@ -660,7 +660,7 @@ CocoaPods 工程的代码虽然非常多，不过代码的逻辑非常清晰，�
 
 > Github Repo：[iOS-Source-Code-Analyze](https://github.com/draveness/iOS-Source-Code-Analyze)
 > 
-> Follow: [Draveness · Github](https://github.com/Draveness)
+> Follow: [Draveness · GitHub](https://github.com/Draveness)
 >
 > Source: http://draveness.me/cocoapods
 
