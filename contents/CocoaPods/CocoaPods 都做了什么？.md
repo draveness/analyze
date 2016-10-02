@@ -4,7 +4,7 @@
 
 ![](images/cocoapods-image.jpg)
 
-先抛开这个话题不谈，我们来看一下 CocoaPods 和 Fastlane 是如何使用的，首先是 CocoaPods，在每一个工程使用 CocoaPods 的工程中都有一个 Podfile：
+先抛开这个话题不谈，我们来看一下 CocoaPods 和 Fastlane 是如何使用的，首先是 CocoaPods，在每一个使用 CocoaPods 的工程中都有一个 Podfile：
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
