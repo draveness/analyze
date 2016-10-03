@@ -1,3 +1,5 @@
+![](images/magic.jpg)
+
 # 谈谈 DSL 以及 DSL 的应用（以 CocoaPods 为例）
 
 > 最近在公司做了一次有关 DSL 在 iOS 开发中的应用的分享，这篇文章会简单介绍这次分享的内容。
