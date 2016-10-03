@@ -34,7 +34,7 @@ DSL 其实是 Domain Specific Language 的缩写，中文翻译为*领域特定�
 
 与 GPL 相对，DSL 与传统意义上的通用编程语言 C、Python 以及 Haskell 完全不同。通用的计算机编程语言是可以用来编写任意计算机程序的，并且能表达任何的**可被计算**的逻辑，同时也是 [图灵完备](https://en.wikipedia.org/wiki/Turing_completeness) 的。
 
-> 这一小节中的 DSL 指外部 DSL，下一节中会介绍 [内部 DSL/嵌入式 DSL](#embedded-dsl（嵌入式-dsl）)
+> 这一小节中的 DSL 指外部 DSL，下一节中会介绍 [内部 DSL/嵌入式 DSL](#embedded-dsl嵌入式-dsl)
 
 但是在里所说的 DSL 并不是图灵完备的，它们的**表达能力有限**，只是在特定领域解决特定任务的。
 
