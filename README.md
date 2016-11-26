@@ -31,7 +31,7 @@ Latest：[预加载与智能预加载（iOS）](https://github.com/Draveness/iOS
 | SDWebImage |   | [iOS 源代码分析 --- SDWebImage](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/SDWebImage/iOS%20源代码分析%20---%20SDWebImage.md) |
 | MBProgressHUD |   | [iOS 源代码分析 --- MBProgressHUD](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/MBProgressHUD/iOS%20源代码分析%20---%20MBProgressHUD.md) |
 | Masonry |   | [iOS 源代码分析 --- Masonry](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/Masonry/iOS%20源代码分析%20---%20Masonry.md) |
-| Redis |   | [Redis 和 I/O 多路复用](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/Redis/redis-io-multiplexing.md) |
+| Redis | 3.2.5  | [Redis 和 I/O 多路复用](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/Redis/redis-io-multiplexing.md) |
 
 
 ## 勘误
