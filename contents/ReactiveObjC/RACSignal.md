@@ -868,3 +868,7 @@ Original Signal Dispose.
 | `+return:` | [RACSignal.m#L89-L91](https://github.com/ReactiveCocoa/ReactiveObjC/blob/1180ab256000573ef82141e5d40e9b9c35dfd69c/ReactiveObjC/RACSignal.m#L89-L91)|
 |  `-bind:` | [RACSignal.m#L93-176](https://github.com/ReactiveCocoa/ReactiveObjC/blob/1180ab256000573ef82141e5d40e9b9c35dfd69c/ReactiveObjC/RACSignal.m#L93-L176) |
 
+> Follow: [Draveness · GitHub](https://github.com/Draveness)
+>
+> Source: http://draveness.me/racsignal
+
