@@ -1,5 +1,7 @@
 # 『状态』驱动的世界：ReactiveCocoa
 
+![RACSignal-Banner](./images/RACSignal/RACSignal-Banner.png)
+
 这篇以及之后的文章主要会对 ReactiveObjc v2.5 的实现进行分析，从最简单的例子中了解 ReactiveCocoa 的工作原理以及概念，也是笔者个人对于 RAC 学习的总结与理解。本文主要会围绕 RAC 中核心概念 `RACSignal` 展开，详细了解其底层实现。
 
 ## 状态驱动
