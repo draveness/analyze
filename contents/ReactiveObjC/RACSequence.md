@@ -453,3 +453,10 @@ NSLog(@"%@", signal.toArray.rac_sequence);
 + [What is the difference between RACSequence and RACSignal](http://stackoverflow.com/questions/28952900/what-is-the-difference-between-racsequence-and-racsignal)
 + [ReactiveCocoa Design Patterns](http://rcdp.io/Signal.html)
 
+> Github Repo：[iOS-Source-Code-Analyze](https://github.com/draveness/iOS-Source-Code-Analyze)
+> 
+> Follow: [Draveness · GitHub](https://github.com/Draveness)
+>
+> Source: http://draveness.me/racsignal
+
+
