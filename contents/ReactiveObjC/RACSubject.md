@@ -6,7 +6,7 @@
 
 `RACSubject` 到底是什么？根据其字面意思，可以将它理解为一个可以订阅的主题，我们在订阅主题之后，向主题发送新的消息时，**所有**的订阅者都会接收到最新的消息。
 
-但是这么解释确实有点晦涩，也不易于理解，ReactiveCocoa 团队对 `RACSubject` 的解释是，`RACSubject` 其实就是一个可以`手动`控制的信号（感觉这么解释更难理解了）。
+但是这么解释确实有点晦涩，也不易于理解，ReactiveCocoa 团队对 `RACSubject` 的解释是，`RACSubject` 其实就是一个可以**手动**控制的信号（感觉这么解释更难理解了）。
 
 > A subject, represented by the RACSubject class, is a signal that can be manually controlled.
 
@@ -110,7 +110,7 @@ RACSubject *subject = [RACSubject subject];
 	@synchronized (subscribers) {
 		[subscribers addObject:subscriber];
 	}
-	
+
 	[disposable addDisposable:[RACDisposable disposableWithBlock:^{
 		@synchronized (subscribers) {
 			NSUInteger index = [subscribers indexOfObjectWithOptions:NSEnumerationReverse passingTest:^ BOOL (id<RACSubscriber> obj, NSUInteger index, BOOL *stop) {
@@ -146,7 +146,7 @@ RACSubject *subject = [RACSubject subject];
 
 - (void)sendError:(NSError *)error {
 	[self.disposable dispose];
-	
+
 	[self enumerateSubscribersUsingBlock:^(id<RACSubscriber> subscriber) {
 		[subscriber sendError:error];
 	}];
@@ -154,7 +154,7 @@ RACSubject *subject = [RACSubject subject];
 
 - (void)sendCompleted {
 	[self.disposable dispose];
-	
+
 	[self enumerateSubscribersUsingBlock:^(id<RACSubscriber> subscriber) {
 		[subscriber sendCompleted];
 	}];
@@ -203,7 +203,7 @@ RACSubject *subject = [RACSubject subject];
 
 	_disposable = [RACCompoundDisposable compoundDisposable];
 	_subscribers = [[NSMutableArray alloc] initWithCapacity:1];
-	
+
 	return self;
 }
 ```
@@ -250,7 +250,7 @@ RACSubject *subject = [RACSubject subject];
 			[subscriber sendNext:self.currentValue];
 		}
 	}];
-	
+
 	return [RACDisposable disposableWithBlock:^{
 		[subscriptionDisposable dispose];
 		[schedulingDisposable dispose];
@@ -324,10 +324,10 @@ const NSUInteger RACReplaySubjectUnlimitedCapacity = NSUIntegerMax;
 
 - (instancetype)initWithCapacity:(NSUInteger)capacity {
 	self = [super init];
-	
+
 	_capacity = capacity;
 	_valuesReceived = (capacity == RACReplaySubjectUnlimitedCapacity ? [NSMutableArray array] : [NSMutableArray arrayWithCapacity:capacity]);
-	
+
 	return self;
 }
 ```
@@ -339,7 +339,7 @@ const NSUInteger RACReplaySubjectUnlimitedCapacity = NSUIntegerMax;
 	@synchronized (self) {
 		[self.valuesReceived addObject:value ?: RACTupleNil.tupleNil];
 		[super sendNext:value];
-		
+
 		if (self.capacity != RACReplaySubjectUnlimitedCapacity && self.valuesReceived.count > self.capacity) {
 			[self.valuesReceived removeObjectsInRange:NSMakeRange(0, self.valuesReceived.count - self.capacity)];
 		}
@@ -424,8 +424,7 @@ RACReplaySubject *subject = [RACReplaySubject subject];
 + [Hot and Cold observables](http://www.introtorx.com/content/v1.0.10621.0/14_HotAndColdObservables.html)
 
 > Github Repo：[iOS-Source-Code-Analyze](https://github.com/draveness/iOS-Source-Code-Analyze)
-> 
+>
 > Follow: [Draveness · GitHub](https://github.com/Draveness)
 >
 > Source: http://draveness.me/racsubject
-
