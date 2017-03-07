@@ -437,6 +437,8 @@ KVOController 对于 Cocoa 中 KVO 的封装非常的简洁和优秀，我们只
 
 不过这并不是一个比较大的问题，同时也只是笔者自己的看法，况且不影响 KVOController 的使用，所以各位读者也无须太过介意。
 
+![](images/you-know.jpg)
+
 > Github Repo：[iOS-Source-Code-Analyze](https://github.com/draveness/iOS-Source-Code-Analyze)
 > 
 > Follow: [Draveness · GitHub](https://github.com/Draveness)
