@@ -27,3 +27,4 @@ fastlane/report.xml
 #
 Pods/
 
+.DS_Store
