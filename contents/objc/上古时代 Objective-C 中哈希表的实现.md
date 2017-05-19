@@ -702,7 +702,7 @@ NXHashTable *NXCreateHashTable (NXHashTablePrototype prototype, unsigned capacit
 static NXHashTable *realized_class_hash = nil;
 ```
 
-我么可以使用 `objc_copyClassList` 获取类的数组：
+我们可以使用 `objc_copyClassList` 获取类的数组：
 
 ```objectivec
 Class *
