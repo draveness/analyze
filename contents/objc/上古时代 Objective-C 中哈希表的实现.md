@@ -690,7 +690,7 @@ NXHashTable *NXCreateHashTable (NXHashTablePrototype prototype, unsigned capacit
 
 ![objc-hashtable-nsarray-instrument](../images/objc-hashtable-nsarray-instrument.png)
 
-导致这一现象的原始可能是：在将原数组中的内容移入新数组时，**临时变量申请了大量的内存控件**。
+导致这一现象的原始可能是：在将原数组中的内容移入新数组时，**临时变量申请了大量的内存空间**。
 
 > 在之后关于 CoreFoundation 源代码分析的文中会介绍它们是怎么实现的。
 
