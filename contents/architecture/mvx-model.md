@@ -1,9 +1,11 @@
 # 谈谈 MVX 中的 Model
 
-+ [谈谈 MVX 中的 Model](http://draveness.me/mvx-model.html)
-+ [谈谈 MVX 中的 View](http://draveness.me/mvx-view.html)
-+ [谈谈 MVX 中的 Controller](http://draveness.me/mvx-controller.html)
-+ [谈谈 MVX 架构模式](http://draveness.me/mvx.html)
++ [谈谈 MVX 中的 Model](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/architecture/mvx-model.md)
++ [谈谈 MVX 中的 View](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/architecture/mvx-view.md) 
++ [谈谈 MVX 中的 Controller](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/architecture/mvx-controller.md)
++ [谈谈 MVX 架构模式](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/architecture/mvx.md)
+
+> Follow GitHub: [Draveness](https://github.com/Draveness)
 
 
 ## 常见的 Model 层
