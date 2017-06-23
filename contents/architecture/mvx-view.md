@@ -205,10 +205,6 @@ redView.frame = CGRectMake(0, 0, 100, 100);
 
 通过这种方式，子视图对父视图一无所知，它不知道父视图的任何属性，只通过 `-layoutSpecThatFits:` 方法传入的参数进行布局，实现了解耦以及代码复用。
 
-### storyboard 和 xib
-
-
-
 ### 小结
 
 由于确实需要对多尺寸的屏幕进行适配，苹果推出 Auto Layout 和 `UIStackView` 的初衷也没有错，但是在笔者看来，因为绝大部分视图都继承自 `UIView`，所以在很多情况下并没有对开发者进行强限制，比如在使用 `UIStackView` 时只能使用 flexbox 式的布局，在使用 Auto Layout 时也只能使用约束对视图进行布局等等，所以在很多时候会带来一些不必要的问题。
