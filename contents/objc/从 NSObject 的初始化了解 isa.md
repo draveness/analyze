@@ -12,7 +12,6 @@ struct objc_object {
 
 当 ObjC 为一个对象分配内存，初始化实例变量后，在这些对象的实例变量的结构体中的第一个就是 `isa`。
 
-<p align='center'>
 ![objc-isa-class-object](../images/objc-isa-class-object.png)
 
 > 所有继承自 `NSObject` 的类实例化后的对象都会包含一个类型为 `isa_t` 的结构体。
@@ -42,12 +41,10 @@ struct objc_class : objc_object {
 
 > 关于如何在 `class_data_bits_t` 中查找对应方法会在之后的文章中讲到。这里只需要知道，它会在这个结构体中查找到对应方法的实现就可以了。[深入解析 ObjC 中方法的结构](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/objc/深入解析%20ObjC%20中方法的结构.md)
 
-<p align='center'>
 ![objc-isa-class-pointer](../images/objc-isa-class-pointer.png)
 
 但是，这样就有一个问题，类方法的实现又是如何查找并且调用的呢？这时，就需要引入*元类*来保证无论是类还是对象都能**通过相同的机制查找方法的实现**。
 
-<p align='center'>
 ![objc-isa-meta-class](../images/objc-isa-meta-class.png)
 
 
@@ -58,7 +55,6 @@ struct objc_class : objc_object {
 
 下面这张图介绍了对象，类与元类之间的关系，笔者认为已经觉得足够清晰了，所以不在赘述。
 
-<p align='center'>
 ![](../images/objc-isa-class-diagram.png)
 
 > 图片来自 [objc_explain_Classes_and_metaclasses](http://www.sealiesoftware.com/blog/archive/2009/04/14/objc_explain_Classes_and_metaclasses.html)
@@ -111,7 +107,6 @@ union isa_t {
 
 `isa_t` 是一个 `union` 类型的结构体，对 `union` 不熟悉的读者可以看这个 stackoverflow 上的[回答](http://stackoverflow.com/questions/252552/why-do-we-need-c-unions). 也就是说其中的 `isa_t`、`cls`、 `bits` 还有结构体共用同一块地址空间。而 `isa` 总共会占据 64 位的内存空间（决定于其中的结构体）
 
-<p align='center'>
 ![objc-isa-isat](../images/objc-isa-isat.png)
 
 ```objectivec
@@ -173,7 +168,6 @@ inline void objc_object::initIsa(Class cls, bool indexed, bool hasCxxDtor)
 
 我们可以把它转换成二进制的数据，然后看一下哪些属性对应的位被这行代码初始化了（标记为红色）：
 
-<p align='center'>
 ![objc-isa-isat-bits](../images/objc-isa-isat-bits.png)
 
 从图中了解到，在使用 `ISA_MAGIC_VALUE` 设置 `isa_t` 结构体之后，实际上只是设置了 `indexed` 以及 `magic` 这两部分的值。
@@ -224,7 +218,6 @@ inline void objc_object::initIsa(Class cls, bool indexed, bool hasCxxDtor)
 isa.has_cxx_dtor = hasCxxDtor;
 ```
 
-<p align='center'>
 ![objc-isa-isat-bits-has-css-dto](../images/objc-isa-isat-bits-has-css-dtor.png)
 
 ### `shiftcls`
@@ -242,7 +235,6 @@ isa.shiftcls = (uintptr_t)cls >> 3;
 
 而 ObjC 中的类指针的地址后三位也为 0，在 `_class_createInstanceFromZone` 方法中打印了调用这个方法传入的类指针：
 
-<p align='center'>
 ![objc-isa-print-cls](../images/objc-isa-print-cls.png)
 
 可以看到，这里打印出来的**所有类指针十六进制地址的最后一位都为 8 或者 0**。也就是说，类指针的后三位都为 0，所以，我们在上面存储 `Class` 指针时右移三位是没有问题的。
@@ -253,7 +245,6 @@ isa.shiftcls = (uintptr_t)cls >> 3;
 
 如果再尝试打印对象指针的话，会发现所有对象内存地址的**后四位**都是 0，说明 ObjC 在初始化内存时是以 16 个字节对齐的, 分配的内存地址后四位都是 0。 
 
-<p align='center'>
 ![objc-isa-print-object](../images/objc-isa-print-object.png)
 
 > 使用整个指针大小的内存来存储 `isa` 指针有些浪费，尤其在 64 位的 CPU 上。在 `ARM64` 运行的 iOS 只使用了 33 位作为指针(与结构体中的 33 位无关，Mac OS 上为 47 位)，而剩下的 31 位用于其它目的。类的指针也同样根据字节对齐了，每一个类指针的地址都能够被 8 整除，也就是使最后 3 bits 为 0，为 `isa` 留下 34 位用于性能的优化。
@@ -263,7 +254,6 @@ isa.shiftcls = (uintptr_t)cls >> 3;
 
 我尝试运行了下面的代码将 `NSObject` 的类指针和对象的 `isa` 打印出来，具体分析一下
 
-<p align='center'>
 ![objc-isa-print-class-object](../images/objc-isa-print-class-object.png)
 
 ```
