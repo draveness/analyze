@@ -52,7 +52,7 @@ int main(int argc, const char * argv[]) {
 
 代码总共只实现了一个 `XXObject` 的 `+ load` 方法，主函数中也没有任何的东西：
 
-<p align='center'>![objc-load-print-load](../images/objc-load-print-load.png)
+![objc-load-print-load](../images/objc-load-print-load.png)
 
 虽然在主函数中什么方法都没有调用，但是运行之后，依然打印了 `XXObject load` 字符串，也就是说调用了 `+ load` 方法。
 
@@ -62,13 +62,13 @@ int main(int argc, const char * argv[]) {
 
 > 注意这里 `+` 和 `[` 之间没有空格
 
-<p align='center'>![objc-load-symbolic-breakpoint](../images/objc-load-symbolic-breakpoint.png)
+![objc-load-symbolic-breakpoint](../images/objc-load-symbolic-breakpoint.png)
 
 > 为什么要加一个符号断点呢？因为这样看起来比较高级。
 
 重新运行程序。这时，代码会停在 `NSLog(@"XXObject load");` 这一行的实现上：
 
-<p align='center'>![objc-load-break-after-add-breakpoint](../images/objc-load-break-after-add-breakpoint.png)
+![objc-load-break-after-add-breakpoint](../images/objc-load-break-after-add-breakpoint.png)
 
 左侧的调用栈很清楚的告诉我们，哪些方法被调用了：
 
@@ -128,7 +128,7 @@ load_images(enum dyld_image_states state, uint32_t infoCount,
 
 这里就会遇到一个问题：镜像到底是什么，我们用一个断点打印出所有加载的镜像：
 
-<p align='center'>![objc-load-print-image-info](../images/objc-load-print-image-info.png)
+![objc-load-print-image-info](../images/objc-load-print-image-info.png)
 
 从控制台输出的结果大概就是这样的，我们可以看到镜像并不是一个 Objective-C 的代码文件，它应该是一个 target 的编译产物。
 
@@ -160,7 +160,7 @@ load_images(enum dyld_image_states state, uint32_t infoCount,
 
 但是如果进入最下面的这个目录，会发现它是一个**可执行文件**，它的运行结果与 Xcode 中的运行结果相同：
 
-<p align='center'>![objc-load-image-binary](../images/objc-load-image-binary.png)
+![objc-load-image-binary](../images/objc-load-image-binary.png)
 
 ### 准备 + load 方法
 
@@ -267,7 +267,7 @@ void call_load_methods(void)
 
 方法的调用流程大概是这样的：
 
-<p align='center'>![objc-load-diagra](../images/objc-load-diagram.png)
+![objc-load-diagra](../images/objc-load-diagram.png)
 
 其中 `call_class_loads` 会从一个待加载的类列表 `loadable_classes` 中寻找对应的类，然后找到 `@selector(load)` 的实现并执行。
 
@@ -310,7 +310,7 @@ ObjC 对于加载的管理，主要使用了两个列表，分别是 `loadable_c
 
 方法的调用过程也分为两个部分，准备 `load` 方法和调用 `load` 方法，我更觉得这两个部分比较像生产者与消费者：
 
-<p align='center'>![objc-load-producer-consumer-diagra](../images/objc-load-producer-consumer-diagram.png)
+![objc-load-producer-consumer-diagra](../images/objc-load-producer-consumer-diagram.png)
 
 
 `add_class_to_loadable_list` 方法负责将类加入 `loadable_classes` 集合，而 `call_class_loads` 负责消费集合中的元素。
