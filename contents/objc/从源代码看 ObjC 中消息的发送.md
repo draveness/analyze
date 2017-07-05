@@ -10,7 +10,7 @@
 2. `[receiver message]` 会被翻译为 `objc_msgSend(receiver, @selector(message))`
 3. 在消息的响应链中**可能**会调用 `- resolveInstanceMethod:` `- forwardInvocation:` 等方法
 4. 关于选择子 SEL 的知识
-    
+
     > 如果对于上述的知识不够了解，可以看一下这篇文章 [Objective-C Runtime](http://tech.glowing.com/cn/objective-c-runtime/)，但是其中关于 `objc_class` 的结构体的代码已经过时了，不过不影响阅读以及理解。
 
 5. 方法在内存中存储的位置，[深入解析 ObjC 中方法的结构](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/objc/深入解析%20ObjC%20中方法的结构.md)（可选）
@@ -26,7 +26,6 @@
 
 由于这个系列的文章都是对 Objective-C 源代码的分析，所以会**从 Objective-C 源代码中分析并合理地推测一些关于消息传递的问题**。
 
-<p align='center'>
 ![objc-message-core](../images/objc-message-core.png)
 
 ## 关于 @selector() 你需要知道的
@@ -87,7 +86,6 @@ int main(int argc, const char * argv[]) {
 
 在主函数任意位置打一个断点， 比如 `-> [object hello];` 这里，然后在 lldb 中输入：
 
-<p align='center'>
 ![objc-message-selecto](../images/objc-message-selector.png)
 
 这里面我们打印了两个选择子的地址` @selector(hello)` 以及 `@selector(undefined_hello_method)`，需要注意的是：
@@ -96,7 +94,6 @@ int main(int argc, const char * argv[]) {
 
 如果我们修改程序的代码：
 
-<p align='center'>
 ![objc-message-selector-undefined](../images/objc-message-selector-undefined.png)
 
 在这里，由于我们在代码中显示地写出了 `@selector(undefined_hello_method)`，所以在 lldb 中再次打印这个 `sel` 内存地址跟之前相比有了很大的改变。
@@ -111,7 +108,6 @@ int main(int argc, const char * argv[]) {
 
 在运行时初始化之前，打印 `hello` 选择子的的内存地址：
 
-<p align='center'>
 ![objc-message-find-selector-before-init](../images/objc-message-find-selector-before-init.png)
 
 ## message.h 文件
@@ -119,10 +115,10 @@ int main(int argc, const char * argv[]) {
 Objective-C 中 `objc_msgSend` 的实现并没有开源，它只存在于 `message.h` 这个头文件中。
 
 ```objectivec
-/** 
+/**
  * @note When it encounters a method call, the compiler generates a call to one of the
  *  functions \c objc_msgSend, \c objc_msgSend_stret, \c objc_msgSendSuper, or \c objc_msgSendSuper_stret.
- *  Messages sent to an object’s superclass (using the \c super keyword) are sent using \c objc_msgSendSuper; 
+ *  Messages sent to an object’s superclass (using the \c super keyword) are sent using \c objc_msgSendSuper;
  *  other messages are sent using \c objc_msgSend. Methods that have data structures as return values
  *  are sent using \c objc_msgSendSuper_stret and \c objc_msgSend_stret.
  */
@@ -177,7 +173,6 @@ int main(int argc, const char * argv[]) {
 
 在调用 `hello` 方法的这一行打一个断点，当我们尝试进入（Step in）这个方法只会直接跳入这个方法的实现，而不会进入 `objc_msgSend`：
 
-<p align='center'>
 ![objc-message-wrong-step-in](../images/objc-message-wrong-step-in.gif)
 
 因为 `objc_msgSend` 是一个私有方法，我们没有办法进入它的实现，但是，我们却可以在 `objc_msgSend` 的调用栈中“截下”这个函数调用的过程。
@@ -188,7 +183,6 @@ int main(int argc, const char * argv[]) {
 
 在 `objc-runtime-new.mm` 文件中有一个函数 `lookUpImpOrForward`，这个函数的作用就是查找方法的实现，于是运行程序，在运行到 `hello` 这一行时，激活 `lookUpImpOrForward` 函数中的断点。
 
-<p align='center'>
 <a href="https://youtu.be/bCdjdI4VhwQ" target="_blank"><img src='../images/objc-message-youtube-preview.jpg'></a>
 
 > 由于转成 gif 实在是太大了，笔者试着用各种方法生成动图，然而效果也不是很理想，只能贴一个 Youtube 的视频链接，不过对于能够翻墙的开发者们，应该也不是什么问题吧（手动微笑）
@@ -203,7 +197,6 @@ int main(int argc, const char * argv[]) {
 
 在 `-> [object hello]` 这里增加一个断点，**当程序运行到这一行时**，再向 `lookUpImpOrForward` 函数的第一行添加断点，确保是捕获 `@selector(hello)` 的调用栈，而不是调用其它选择子的调用栈。
 
-<p align='center'>
 ![objc-message-first-call-hello](../images/objc-message-first-call-hello.png)
 
 由图中的变量区域可以了解，传入的选择子为 `"hello"`，对应的类是 `XXObject`。所以我们可以确信这就是当调用 `hello` 方法时执行的函数。在 Xcode 左侧能看到方法的调用栈：
@@ -221,7 +214,7 @@ int main(int argc, const char * argv[]) {
 ```objectivec
 IMP _class_lookupMethodAndLoadCache3(id obj, SEL sel, Class cls)
 {
-    return lookUpImpOrForward(cls, sel, obj, 
+    return lookUpImpOrForward(cls, sel, obj,
                               YES/*initialize*/, NO/*cache*/, YES/*resolver*/);
 }
 ```
@@ -291,12 +284,10 @@ imp = cache_getImp(cls, sel);
 if (imp) goto done;
 ```
 
-<p align='center'>
 ![objc-message-cache-struct](../images/objc-message-cache-struct.png)
 
 不过 `cache_getImp` 的实现目测是不开源的，同时也是汇编写的，在我们尝试 step in 的时候进入了如下的汇编代码。
 
-<p align='center'>
 ![objc-message-step-in-cache-getimp](../images/objc-message-step-in-cache-getimp.png)
 
 它会进入一个 `CacheLookup` 的标签，获取实现，使用汇编的原因还是因为要加速整个实现查找的过程，其原理推测是在类的 `cache` 中寻找对应的实现，只是做了一些性能上的优化。
@@ -316,8 +307,8 @@ if (meth) {
 
 ```objectivec
 static method_t *getMethodNoSuper_nolock(Class cls, SEL sel) {
-    for (auto mlists = cls->data()->methods.beginLists(), 
-              end = cls->data()->methods.endLists(); 
+    for (auto mlists = cls->data()->methods.beginLists(),
+              end = cls->data()->methods.endLists();
          mlists != end;
          ++mlists)
     {
@@ -336,7 +327,7 @@ static method_t *search_method_list(const method_list_t *mlist, SEL sel)
 {
     int methodListIsFixedUp = mlist->isFixedUp();
     int methodListHasExpectedSize = mlist->entsize() == sizeof(method_t);
-    
+
     if (__builtin_expect(methodListIsFixedUp && methodListHasExpectedSize, 1)) {
         return findMethodInSortedMethodList(sel, mlist);
     } else {
@@ -434,11 +425,11 @@ void _class_resolveMethod(Class cls, SEL sel, id inst)
 {
     if (! cls->isMetaClass()) {
         _class_resolveInstanceMethod(cls, sel, inst);
-    } 
+    }
     else {
         _class_resolveClassMethod(cls, sel, inst);
-        if (!lookUpImpOrNil(cls, sel, inst, 
-                            NO/*initialize*/, YES/*cache*/, NO/*resolver*/)) 
+        if (!lookUpImpOrNil(cls, sel, inst,
+                            NO/*initialize*/, YES/*cache*/, NO/*resolver*/))
         {
             _class_resolveInstanceMethod(cls, sel, inst);
         }
@@ -450,7 +441,7 @@ void _class_resolveMethod(Class cls, SEL sel, id inst)
 
 ```objectivec
 static void _class_resolveInstanceMethod(Class cls, SEL sel, id inst) {
-    if (! lookUpImpOrNil(cls->ISA(), SEL_resolveInstanceMethod, cls, 
+    if (! lookUpImpOrNil(cls->ISA(), SEL_resolveInstanceMethod, cls,
                          NO/*initialize*/, YES/*cache*/, NO/*resolver*/)) {
         // 没有找到 resolveInstanceMethod: 方法，直接返回。
         return;
@@ -460,7 +451,7 @@ static void _class_resolveInstanceMethod(Class cls, SEL sel, id inst) {
     bool resolved = msg(cls, SEL_resolveInstanceMethod, sel);
 
     // 缓存结果，以防止下次在调用 resolveInstanceMethod: 方法影响性能。
-    IMP imp = lookUpImpOrNil(cls, sel, inst, 
+    IMP imp = lookUpImpOrNil(cls, sel, inst,
                              NO/*initialize*/, YES/*cache*/, NO/*resolver*/);
 }
 ```
@@ -486,7 +477,6 @@ cache_fill(cls, sel, imp, inst);
 
 这样就结束了整个方法第一次的调用过程，缓存没有命中，但是在当前类的方法列表中找到了 `hello` 方法的实现，调用了该方法。
 
-<p align='center'>
 ![objc-message-first-call-hello](../images/objc-message-first-call-hello.png)
 
 
@@ -507,7 +497,6 @@ int main(int argc, const char * argv[]) {
 
 然后在第二次调用 `hello` 方法时，加一个断点：
 
-<p align='center'>
 ![objc-message-objc-msgSend-with-cache](../images/objc-message-objc-msgSend-with-cache.gif)
 
 `objc_msgSend` 并没有走 `lookupImpOrForward` 这个方法，而是直接结束，打印了另一个 `hello` 字符串。
@@ -518,7 +507,6 @@ int main(int argc, const char * argv[]) {
 
 好，现在重新运行程序至第二个 `hello` 方法调用之前：
 
-<p align='center'>
 ![objc-message-before-flush-cache](../images/objc-message-before-flush-cache.png)
 
 打印缓存中 bucket 的内容：
@@ -568,12 +556,10 @@ int main(int argc, const char * argv[]) {
 }
 ```
 
-<p align='center'>
 ![objc-message-after-flush-cache](../images/objc-message-after-flush-cache.png)
 
 这样 `XXObject` 中就不存在 `hello` 方法对应实现的缓存了。然后继续运行程序：
 
-<p align='center'>
 ![objc-message-after-flush-cache-trap-in-lookup-again](../images/objc-message-after-flush-cache-trap-in-lookup-again.png)
 
 虽然第二次调用 `hello` 方法，但是因为我们清除了 `hello` 的缓存，所以，会再次进入 `lookupImpOrForward` 方法。
@@ -604,12 +590,10 @@ int main(int argc, const char * argv[]) {
 
 在第一个 `hello` 方法调用之前将实现加入缓存：
 
-<p align='center'>
 ![objc-message-add-imp-to-cache](../images/objc-message-add-imp-to-cache.png)
 
 然后继续运行代码：
 
-<p align='center'>
 ![objc-message-run-after-add-cache](../images/objc-message-run-after-add-cache.png)
 
 可以看到，我们虽然没有改变 `hello` 方法的实现，但是在 **objc_msgSend** 的消息发送链路中，使用错误的缓存实现 `cached_imp` 拦截了实现的查找，打印出了 `Cached Hello`。
@@ -625,7 +609,7 @@ int main(int argc, const char * argv[]) {
 这篇文章与其说是讲 ObjC 中的消息发送的过程，不如说是讲方法的实现是如何查找的。
 
 Objective-C 中实现查找的路径还是比较符合直觉的：
- 
+
  1. 缓存命中
  2. 查找当前类的缓存及方法
  3. 查找父类的缓存及方法
@@ -641,5 +625,3 @@ Objective-C 中实现查找的路径还是比较符合直觉的：
 + [Let's Build objc_msgSend](https://www.mikeash.com/pyblog/friday-qa-2012-11-16-lets-build-objc_msgsend.html)
 
 Follow: [@Draveness](https://github.com/Draveness)
-
-
