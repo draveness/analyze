@@ -10,7 +10,6 @@
 
 先来了解一下 ObjC 中类的结构图：
 
-<p align="center">
 ![objc-method-class](../images/objc-method-class.png)
 
 + `isa` 是指向元类的指针，不了解元类的可以看 [Classes and Metaclasses](http://www.sealiesoftware.com/blog/archive/2009/04/14/objc_explain_Classes_and_metaclasses.html)
@@ -24,7 +23,6 @@
 
 下面就是 ObjC 中 `class_data_bits_t` 的结构体，其中只含有一个 64 位的 `bits` 用于存储与类有关的信息：
 
-<p align="center">
 ![objc-method-class-data-bits-t](../images/objc-method-class-data-bits-t.png)
 
 在 `objc_class` 结构体中的注释写到 `class_data_bits_t` 相当于 `class_rw_t` 指针加上 rr/alloc 的标志。
@@ -47,7 +45,6 @@ class_rw_t* data() {
 
 因为 `class_rw_t *` 指针只存于第 `[3, 47]` 位，所以可以使用最后三位来存储关于当前类的其他信息：
 
-<p align="center">
 ![objc-method-class_data_bits_t](../images/objc-method-class_data_bits_t.png)
 
 
@@ -126,7 +123,6 @@ struct class_ro_t {
 
 **在编译期间**类的结构中的 `class_data_bits_t *data` 指向的是一个 `class_ro_t *` 指针：
 
-<p align='center'>
 ![objc-method-before-realize](../images/objc-method-before-realize.png)
 
 
@@ -147,7 +143,6 @@ cls->setData(rw);
 
 下图是 `realizeClass` 方法执行过后的类所占用内存的布局，你可以与上面调用方法前的内存布局对比以下，看有哪些更改：
 
-<p align='center'>
 ![objc-method-after-realize-class](../images/objc-method-after-realize-class.png)
 
 但是，在这段代码运行之后 `class_rw_t` 中的方法，属性以及协议列表均为空。这时需要 `realizeClass` 调用 `methodizeClass` 方法来**将类自己实现的方法（包括分类）、属性和遵循的协议加载到 `methods`、 `properties` 和 `protocols` 列表中**。
@@ -181,7 +176,6 @@ cls->setData(rw);
 
 > 这段代码是运行在 Mac OS X 10.11.3 (x86_64)版本中，而不是运行在 iPhone 模拟器或者真机上的，如果你在 iPhone 或者真机上运行，可能有一定差别。
 
-<p align='center'>
 ![objc-method-target](../images/objc-method-target.png)
 
 这是主程序的代码：
@@ -209,7 +203,6 @@ int main(int argc, const char * argv[]) {
 
 接下来，在整个 ObjC 运行时初始化之前，也就是 `_objc_init` 方法中加入一个断点：
 
-<p align="center">
 ![objc-method-after-compile](../images/objc-method-after-compile.png)
 
 然后在 lldb 中输入以下命令：
@@ -240,7 +233,6 @@ warning: could not load any Objective-C class information. This will significant
 }
 ```
 
-<p align="center">
 ![objc-method-lldb-print-before-realize](../images/objc-method-lldb-print-before-realize.png)
 
 现在我们获取了类经过编译器处理后的只读属性 `class_ro_t`：
@@ -281,7 +273,6 @@ The process has been returned to the state before expression evaluation.
 (lldb)
 ```
 
-<p align="center">
 ![objc-method-lldb-print-method-list](../images/objc-method-lldb-print-method-list.png)
 
 使用 `$5->get(0)` 时，成功获取到了 `-[XXObject hello]` 方法的结构体 `method_t`。而尝试获取下一个方法时，断言提示我们当前类只有一个方法。
@@ -299,14 +290,12 @@ static Class realizeClass(Class cls)
 
 上面就是这个方法的签名，我们需要在这个方法中打一个条件断点，来判断当前类是否为 `XXObject`：
 
-<p align="center">
 ![objc-method-lldb-breakpoint](../images/objc-method-lldb-breakpoint.png)
 
 这里直接判断两个指针是否相等，而不使用 `[NSStringFromClass(cls) isEqualToString:@"XXObject"]` 是因为在这个时间点，这些方法都不能调用，在 ObjC 中没有这些方法，所以只能通过判断类指针是否相等的方式来确认当前类是 `XXObject`。
 
 > 直接与指针比较是因为类在内存中的位置是编译期确定的，只要代码不改变，类在内存中的位置就会不变（已经说过很多遍了）。
 
-<p align="center">
 ![objc-method-breakpoint-before-set-r](../images/objc-method-breakpoint-before-set-rw.png)
 
 
@@ -316,13 +305,11 @@ static Class realizeClass(Class cls)
 
 在这时打印类结构体中的 `data` 的值，发现其中的布局依旧是这样的：
 
-<p align="center">
 ![objc-method-before-realize](../images/objc-method-before-realize.png)
 
 
 在运行完这段代码之后:
 
-<p align="center">
 ![objc-method-after-realize-breakpoint](../images/objc-method-after-realize-breakpoint.png)
 
 我们再来打印类的结构:
@@ -400,7 +387,6 @@ Assertion failed: (i < count), function get, file /Users/apple/Desktop/objc-runt
 (lldb)
 ```
 
-<p align="center">
 ![objc-method-print-class-struct-after-realize](../images/objc-method-print-class-struct-after-realize.png)
 
 > 最后一个操作实在是截取不到了
@@ -415,7 +401,6 @@ cls->setData(rw);
 
 在上述的代码运行之后，类的只读指针 `class_ro_t` 以及可读写指针 `class_rw_t` 都被正确的设置了。但是到这里，其 `class_rw_t` 部分的方法等成员的指针 `methods`、 `protocols` 和 `properties` 均为空，这些会在 `methodizeClass` 中进行设置：
 
-<p align="center">
 ![objc-method-after-methodizeClass](../images/objc-method-after-methodizeClass.png)
 
 在这里调用了 `method_array_t` 的 `attachLists` 方法，将 `baseMethods` 中的方法添加到 `methods` 数组之后。我们访问 `methods` 才会获取当前类的实例方法。
@@ -434,7 +419,6 @@ struct method_t {
 
 其中包含方法名，类型还有方法的实现指针 `IMP`：
 
-<p align="center">
 ![obj-method-struct](../images/obj-method-struct.png)
 
 上面的 `-[XXObject hello]` 方法的结构体是这样的：
