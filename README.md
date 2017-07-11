@@ -16,10 +16,11 @@ Latest：
 + [谈谈 MVX 中的 Model](contents/architecture/mvx-model.md)
 + [谈谈 MVX 中的 View](contents/architecture/mvx-view.md) 
 + [谈谈 MVX 中的 Controller](contents/architecture/mvx-controller.md)
++ [浅谈 MVC、MVP 和 MVVM 架构模式](contents/architecture/mvx.md)
 
 | Project | Version | Article |
 |:-------:|:-------:|:------|
-| Architecture | | [谈谈 MVX 中的 Model](contents/architecture/mvx-model.md) <br> [谈谈 MVX 中的 View](contents/architecture/mvx-view.md) <br> [谈谈 MVX 中的 Controller](contents/architecture/mvx-controller.md)     |
+| Architecture | | [谈谈 MVX 中的 Model](contents/architecture/mvx-model.md) <br> [谈谈 MVX 中的 View](contents/architecture/mvx-view.md) <br> [谈谈 MVX 中的 Controller](contents/architecture/mvx-controller.md) <br> [浅谈 MVC、MVP 和 MVVM 架构模式](contents/architecture/mvx.md) |
 | ReactiveObjC | 2.1.2 | [『状态』驱动的世界：ReactiveCocoa](contents/ReactiveObjC/RACSignal.md) <br> [Pull-Driven 的数据流 RACSequence](contents/ReactiveObjC/RACSequence.md) <br>[『可变』的热信号 RACSubject](contents/ReactiveObjC/RACSubject.md) <br> [优雅的 RACCommand](contents/ReactiveObjC/RACCommand.md) <br> [用于多播的 RACMulticastConnection](contents/ReactiveObjC/RACMulticastConnection.md) <br> [RAC 中的双向数据绑定 RACChannel](contents/ReactiveObjC/RACChannel.md) <br> [理解 RACScheduler 的实现](contents/ReactiveObjC/RACScheduler.md) <br> [从代理到 RACSignal](contents/ReactiveObjC/RACDelegateProxy.md)|
 |  ObjC   |         | [从 NSObject 的初始化了解 isa](contents/objc/从%20NSObject%20的初始化了解%20isa.md) <br> [深入解析 ObjC 中方法的结构](contents/objc/深入解析%20ObjC%20中方法的结构.md) <br> [从源代码看 ObjC 中消息的发送](contents/objc/从源代码看%20ObjC%20中消息的发送.md) <br> [你真的了解 load 方法么？](contents/objc/你真的了解%20load%20方法么？.md) <br> [上古时代 Objective-C 中哈希表的实现](contents/objc/上古时代%20Objective-C%20中哈希表的实现.md) <br> [自动释放池的前世今生](contents/objc/自动释放池的前世今生.md)<br>[黑箱中的 retain 和 release](contents/objc/黑箱中的%20retain%20和%20release.md) <br> [关联对象 AssociatedObject 完全解析](contents/objc/关联对象%20AssociatedObject%20完全解析.md)<br>[懒惰的 initialize 方法](contents/objc/懒惰的%20initialize%20方法.md)<br>[对象是如何初始化的（iOS）](contents/objc/对象是如何初始化的（iOS）.md)|
 | KVOController | 1.2.0 | [如何优雅地使用 KVO](contents/KVOController/KVOController.md) |
