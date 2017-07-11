@@ -13,9 +13,9 @@
 
 Latest：
 
-+ [谈谈 MVX 中的 Model](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/architecture/mvx-model.md)
-+ [谈谈 MVX 中的 View](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/architecture/mvx-view.md) 
-+ [谈谈 MVX 中的 Controller](https://github.com/Draveness/iOS-Source-Code-Analyze/blob/master/contents/architecture/mvx-controller.md)
++ [谈谈 MVX 中的 Model](contents/architecture/mvx-model.md)
++ [谈谈 MVX 中的 View](contents/architecture/mvx-view.md) 
++ [谈谈 MVX 中的 Controller](contents/architecture/mvx-controller.md)
 
 | Project | Version | Article |
 |:-------:|:-------:|:------|
