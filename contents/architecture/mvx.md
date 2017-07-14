@@ -7,7 +7,7 @@
 
 > Follow GitHub: [Draveness](https://github.com/Draveness)
 
-这是 MVX 系列的第四篇文章，在前面的文章中，我们先后介绍了 iOS 中的 Model、View 和 Controller 的现状，对比了其他平台中的设计，最后给出了作者理想中的结构。
+这是 MVX 系列的第四篇文章，在前面的文章中，我们先后介绍了 MVC 架构模式中的 Model、View 和 Controller 的现状，对比了其他平台中的设计，最后给出了作者理想中的结构。
 
 而在这一篇文章中，作者会依次介绍 MVC、MVP 以及 MVVM 架构模式以及不同平台对它们的使用；虽然参考了诸多资料，不过文中观点难免掺入作者的主观意见，作者也希望文中的错误与不足之处能被各位读者指出。
 
