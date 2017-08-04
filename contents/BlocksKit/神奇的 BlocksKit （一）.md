@@ -94,7 +94,7 @@ BlocksKit 在这些集合类中所添加的一些方法在 Ruby、Haskell 等语
 
 ```objectivec
 NSObject *test = [[NSObject alloc] init];
-[test bk_associateValue:@"Draveness" withKey:@" name"];
+[test bk_associateValue:@"Draveness" withKey:@"name"];
 NSLog(@"%@"，[test bk_associatedValueForKey:@"name"]);
 
 2016-03-05 16:02:25.761 Draveness[10699:452125] Draveness
