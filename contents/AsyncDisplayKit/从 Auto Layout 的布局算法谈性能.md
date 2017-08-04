@@ -302,7 +302,7 @@ ASDK 的文档中推荐在子类中覆写 `- layoutSpecThatFits:` 方法，返�
 
 ## References
 
-+ [Cassowary, Cocoa Auto Layout, and enaml constraints](http://stacks.11craft.com/cassowary-cocoa-Auto Layout-and-enaml-constraints.html)
++ [Cassowary, Cocoa Auto Layout, and enaml constraints](http://stacks.11craft.com/cassowary-cocoa-autolayout-and-enaml-constraints.html)
 + [Solving constraint systems](http://cassowary.readthedocs.io/en/latest/topics/theory.html)
 + [Auto Layout Performance on iOS](http://floriankugler.com/2013/04/22/auto-layout-performance-on-ios/)
 + [The Cassowary Linear Arithmetic Constraint Solving Algorithm: Interface and Implementation](https://constraints.cs.washington.edu/cassowary/cassowary-tr.pdf)
