@@ -1,4 +1,4 @@
-# 浅入深出 MySQL 中事务的实现
+# 『浅入深出』MySQL 中事务的实现
 
 在关系型数据库中，事务的重要性不言而喻，只要对数据库稍有了解的人都知道事务具有 ACID 四个基本属性，而我们不知道的可能就是数据库是如何实现这四个属性的；在这篇文章中，我们将对事务的实现进行分析，尝试理解数据库是如何实现事务的，当然我们也会在文章中简单对 MySQL 中对 ACID 的实现进行简单的介绍。
 
@@ -214,4 +214,3 @@ CAP 定理中的数据一致性，其实是说分布式系统中的各个节点�
 + [MySQL 解密：InnoDB 存储引擎重做日志漫游](https://www.qiancheng.me/post/coding/mysql-001)
 + [ACID 中 C 与 CAP 定理中 C 的区别](http://www.jdon.com/46956)
 + [Disambiguating ACID and CAP](https://www.voltdb.com/blog/2015/10/22/disambiguating-acid-cap/)
-
