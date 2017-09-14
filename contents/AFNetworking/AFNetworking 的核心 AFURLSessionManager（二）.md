@@ -113,7 +113,7 @@ Blog: [Draveness](http://draveness.me)
 > `url_session_manager_create_task_safely` 的调用是因为苹果框架中的一个 bug [#2093](https://github.com/AFNetworking/AFNetworking/issues/2093)，如果有兴趣可以看一下，在这里就不说明了
 
 1. 调用 `- [NSURLSession dataTaskWithRequest:]` 方法传入 `NSURLRequest`
-2. 调用 `- [AFURLSessionManager addDelegateForDataTask:uploadProgress:downloadProgress:completionHandler:]` 方法返回一个 `AFURLSessionManagerTaskDelegate` 对象
+2. 调用 `- [AFURLSessionManager addDelegateForDataTask:uploadProgress:downloadProgress:completionHandler:]` 方法创建一个 `AFURLSessionManagerTaskDelegate` 对象
 3. 将 `completionHandler` `uploadProgressBlock` 和 `downloadProgressBlock` 传入该对象并在相应事件发生时进行回调
 
 ```objectivec
