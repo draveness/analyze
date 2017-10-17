@@ -386,6 +386,7 @@ class Tag < ActiveRecord::Base
   has_and_belongs_to_many :posts
 end
 puts ActiveRecord::Base.descendants
+# => [Tag, Post, Post::HABTM_Tags, Tag::HABTM_Posts]
 ```
 
 上述代码打印出了两个 `has_and_belongs_to_many` 生成的类 `Tag::HABTM_Posts` 和 `Post::HABTM_Tags`，它们有着完全相同的表 `posts_tags`，处理多对多关系时，我们只需要在使用 `DatabaseTransformer` 导入表中的所有的数据之后，再通过遍历 `posts_tags` 表中的数据更新多对多的关系表就可以了：
