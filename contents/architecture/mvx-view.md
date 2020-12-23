@@ -198,7 +198,7 @@ redView.frame = CGRectMake(0, 0, 100, 100);
 父视图通过调用子视图的 `-layoutSpecThatFits:` 方法获取子视图布局所需要的大小，而子视图通过父视图传入的 `CGSizeRange` 来设置自己的大小。
 
 ```objectivec
-- (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
+- (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize {
     ...
 }
 ```
